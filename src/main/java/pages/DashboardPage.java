@@ -24,7 +24,10 @@ public class DashboardPage extends BasePage {
     private WebElementFacade documentsContainer;
 
     @FindBy(css = ".card-content .material-icons")
-    private WebElementFacade threeDotsButton;
+    private WebElementFacade threeDotsButtonEmployee;
+
+    @FindBy(xpath = "//div[contains(@class,'card-content')]//i[contains(@class,'material-icons right')]")
+    private WebElementFacade threeDotsButtonLeaves;
 
     @FindBy(css = "#task-list-group-panel-menu_holder-legend")
     private WebElementFacade employeeLegend;
