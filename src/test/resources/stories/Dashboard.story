@@ -8,7 +8,7 @@ Given I am on the login page of application
 When I login to application with username 'admin' and password 'admin123'
 
 Scenario: AC-1 Check that left menu appear/disapear after clicking on hide/show menu button
-Meta: @regression
+Meta: @regression @debug
 When I click on hide menu button
 Then main menu disappear
 When I click on show menu button

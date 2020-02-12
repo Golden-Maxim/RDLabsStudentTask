@@ -1,6 +1,7 @@
 package stepDefs;
 
 import net.thucydides.core.annotations.Steps;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import steps.CommonSteps;
@@ -26,7 +27,9 @@ public class DashboardPageStepDef extends DefaultStepsData {
 
     //https://jbehave.org/reference/latest/aliases.html
 
+    //first bag are fixed
     @When("I click on hide menu button")
+    @Alias("I click on show menu button")
     public void whenClickOnTheHideMenuButton() {
         dashboardPageSteps.clickOnHideMenuButton();
     }
