@@ -20,6 +20,7 @@ public class CommonSteps extends DefaultStepsData {
 
     @Step
     public boolean getCheckBoxStatus(String checkBoxName) {
+
         WebElementFacade checkBox = dashboardPage.getCheckBoxByName(checkBoxName);
         Checkbox checkbox = new Checkbox(checkBox);
         return checkbox.isChecked();

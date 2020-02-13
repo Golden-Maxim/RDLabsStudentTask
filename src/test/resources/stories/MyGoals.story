@@ -14,7 +14,7 @@ When I click on Unapproved Goals button
 Then No Records Found message is shown on the page
 
 Scenario: AC-2 Check that Add Goals and Add Objective buttons become visible after howering over Add Button
-Meta: @regression @debug
+Meta: @regression
 When I hover mouse over Add button
 Then Add Goals button become visible
 And Add Objective button become visible
