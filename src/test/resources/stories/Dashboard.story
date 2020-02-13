@@ -15,7 +15,7 @@ When I click on show menu button
 Then main menu appear
 
 Scenario: AC-2 Check that Legend is shown after activate/expand Employee Distribution by Subunit and Leave Taken from January by Subunit section
-Meta: @regression @debug
+Meta: @regression
 When I click on the three dots button inside Employee Distribution by Subunit section
 Then Legend component appears in Employee Distribution by Subunit section
 When I click on the three dots button inside Leave Taken from January by Subunit section
