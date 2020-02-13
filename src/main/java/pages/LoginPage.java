@@ -27,7 +27,7 @@ public class LoginPage extends BasePage {
     private WebElementFacade emptyFieldErrorMessage;
 
 
-    @FindBy(xpath = "//li[@class='dropdown-menu']//li//a")
+    @FindBy(xpath = "//ul[@class='dropdown-menu']//li//a")
     private List<WebElementFacade> userRoles;
 
     @FindBy(css = ".outer .hidden-md")
