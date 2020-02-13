@@ -32,7 +32,7 @@ Then following roles are shown in the drop down:
 | 1st Level Supervisor |
 
 Scenario: AC-5 Check that following social-media buttons -  facebook, google, twitter, youtube, linkedin are visible on login page:
-Meta: @regression @debug
+Meta: @regression
 Then I check that following social-media buttons are visible:
 | social_media_button |
 | facebook            |
