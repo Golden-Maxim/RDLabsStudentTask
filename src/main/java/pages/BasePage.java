@@ -74,6 +74,9 @@ public abstract class BasePage extends PageObject {
         log.info("Clicking with java script executor");
         getJavaScriptExecutor(driver).executeScript("arguments[0].click();", webElement);
     }
+    public void switchToIframe(){
+        getDriver().switchTo().frame("noncoreIframe");
+    }
 
     public WebElementFacade getPopUpElement() {
         return withTimeoutOf(Duration.ofSeconds(10)).waitFor(popUpElement);

@@ -17,7 +17,7 @@ public class EmployeeTimeSheetsSteps extends DefaultStepsData {
         try {
             employeeTimeSheetsPage.switchToIframe();
         }catch (NoSuchFrameException exception){
-
+            System.out.println("Iframe is not found!");
         }
         employeeTimeSheetsPage.getSearchInputField().waitUntilEnabled().click();
         employeeTimeSheetsPage.getSearchInputField().clear();

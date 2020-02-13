@@ -9,7 +9,7 @@ And I login to application with username 'admin' and password 'admin123'
 When I go to Employee Timesheets page
 
 Scenario: AC-1 Check that search by part of employee name work as axpected
-Meta: @regression @debug
+Meta: @regression
 When I search by part of employee name Peter
 Then Peter Mac Anderson is shown in auto fill result
 When I search by part of employee name Jenn
