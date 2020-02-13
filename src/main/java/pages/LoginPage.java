@@ -30,8 +30,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//ul[@class='dropdown-menu']//li//a")
     private List<WebElementFacade> userRoles;
 
-    @FindBy(css = ".outer .hidden-md")
+    @FindBy(css = ".social-buttons")
     private WebElementFacade socialMediaContainer;
+//div[contains(@class,'outer hidden-md hidden-lg')]//div[contains(@class, 'col-md-12 ')]//a
 
     public void enterUserName(String userName) {
         log.info("Login to app with userName " + userName);
