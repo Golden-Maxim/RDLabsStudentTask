@@ -26,7 +26,7 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
     @When("I change Date of Birth added 1 day to old date")
     public void changeDateOfBirth() {
         String currentDate = personalDetailsSteps.getValueFromDateOfBirthField();
-        String updatedDate = getDateInFutureOrPastFromNow(DATEPATTERN_US, 1, currentDate);
+        String updatedDate = getDateInFutureOrPastFromNow(DATEPATTERN_US, 1);
         personalDetailsSteps.enterDateIntoDateBirthField(updatedDate);
     }
 
