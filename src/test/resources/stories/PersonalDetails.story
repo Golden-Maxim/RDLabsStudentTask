@@ -13,7 +13,7 @@ Meta: @regression
 Then check box Smoker is not checked
 
 Scenario: AC-2 Check value in Date of Birth field is not saved after refresh page without clicking on Save button
-Meta: @regression
+Meta: @regression @debug
 Then I save current Date of Birth to session
 When I change Date of Birth added 1 day to old date
 And refresh page

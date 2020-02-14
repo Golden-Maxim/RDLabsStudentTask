@@ -9,8 +9,7 @@ import steps.PersonalDetailsSteps;
 
 import java.util.List;
 
-import static utils.DateUtils.DATEPATTERN_US;
-import static utils.DateUtils.getDateInFutureOrPastFromNow;
+import static utils.DateUtils.*;
 import static utils.SessionVariables.DATE_OF_BIRTH;
 
 public class PersonalDatailsStepDef extends DefaultStepsData {
@@ -26,7 +25,7 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
     @When("I change Date of Birth added 1 day to old date")
     public void changeDateOfBirth() {
         String currentDate = personalDetailsSteps.getValueFromDateOfBirthField();
-        String updatedDate = getDateInFutureOrPastFromNow(DATEPATTERN_US, 1);
+        String updatedDate = getDateInFutureOrPastFromNow(DATEPATTERN_MY, 1,currentDate);
         personalDetailsSteps.enterDateIntoDateBirthField(updatedDate);
     }
 
