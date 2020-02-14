@@ -34,4 +34,9 @@ public class LoginPageSteps extends DefaultStepsData {
     public List<String> getAllUsersRolesFromDropDown() {
         return loginPage.getUserRoles().stream().map(WebElementFacade::getText).collect(Collectors.toList());
     }
+
+    @Step
+    public String getTexFromAdminField(){
+         return loginPage.getLoginInputField().waitUntilEnabled().getValue();
+    }
 }

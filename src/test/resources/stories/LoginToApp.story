@@ -42,7 +42,9 @@ Then I check that following social-media buttons are visible:
 | linkedin            |
 
 !-- TODO implement this scenario
-Scenario: AC-6 Check that text "admin" is shown by default on login page in user name field
+Scenario: AC-6 Check that text "admin" is shown by default on login page in user name field:
+Meta: @newTask @debug
+Then I check that text 'admin' admin is shown by default on login page in user name field
 
 
 !-- TODO implement this scenario

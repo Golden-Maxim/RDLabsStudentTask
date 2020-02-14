@@ -55,4 +55,5 @@ public class LoginPage extends BasePage {
         loginAsDifferentRoleButton.waitUntilVisible().waitUntilClickable().click();
     }
 
+
 }
