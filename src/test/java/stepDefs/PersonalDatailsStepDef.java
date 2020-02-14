@@ -1,9 +1,11 @@
 package stepDefs;
 
 import com.google.common.collect.Ordering;
+import com.google.inject.internal.cglib.proxy.$Factory;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.junit.Assert;
 import steps.DefaultStepsData;
 import steps.PersonalDetailsSteps;
 
@@ -16,6 +18,7 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
 
     @Steps
     PersonalDetailsSteps personalDetailsSteps;
+    CommonStepDefs commonStepDefs;
 
     @Then("I save current Date of Birth to session")
     public void saveCurentDateOfBirthToSession() {
@@ -41,4 +44,39 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
         boolean isSorted = Ordering.natural().isOrdered(optionsFromNationalitySelect);
         softly.assertThat(isSorted).as("Wrong ordering inside select box").isTrue();
     }
+
+    @When("I under Gender label I set Male radio button as checked")
+    public void setMaleRadioButton(){
+        personalDetailsPage.getMaleRadioButton().waitUntilClickable().click();
+    }
+
+    @Then("I check that Female radio button is unchecked")
+    public void checkThatFemaleIsUnchecked(){
+       /*
+       Костиль
+       if(personalDetailsPage.getFemaleRadioButton().isClickable()){
+            return false;
+        }
+        else return true;*/
+      // softly.assertThat(personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked")).isEqualTo(false);
+        Assert.assertTrue(personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked").equals(false));
+
+    }
+
+    @When ("I set Female radio button as checked")
+    public void setFemaleRadioButton(){
+        personalDetailsPage.getFemaleRadioButton().waitUntilClickable().click();
+    }
+    @Then("I check that Male radio button is unchecked")
+    public void checkThatMaleIsUnchecked(){
+       /*
+       Костиль
+       if (personalDetailsPage.getMaleRadioButton().isClickable()) {
+            return false;
+        }else return true;*/
+        //softly.assertThat(personalDetailsPage.getMaleRadioButton().waitUntilEnabled().getAttribute("checked")).isEqualTo(false);
+        Assert.assertTrue(personalDetailsPage.getMaleRadioButton().waitUntilEnabled().getAttribute("checked").equals(false));
+    }
+
+
 }

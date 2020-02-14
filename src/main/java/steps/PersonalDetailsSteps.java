@@ -1,5 +1,6 @@
 package steps;
 
+import com.google.inject.internal.asm.$AnnotationVisitor;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 
@@ -25,4 +26,6 @@ public class PersonalDetailsSteps extends DefaultStepsData {
                 .stream().map(we -> we.getAttribute("innerText")).collect(Collectors.toList());
         return nationalityOptions;
     }
+
+
 }
