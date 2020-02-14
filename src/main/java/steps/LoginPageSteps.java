@@ -3,10 +3,12 @@ package steps;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
+import pageComponents.PopUp;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Slf4j
 public class LoginPageSteps extends DefaultStepsData {
@@ -39,4 +41,10 @@ public class LoginPageSteps extends DefaultStepsData {
     public String getTexFromAdminField(){
          return loginPage.getLoginInputField().waitUntilEnabled().getValue();
     }
+
+   @Step
+   public String getTextFromPopUPInvalidCredentials(){
+       PopUp popUp = new PopUp(loginPage.getPopUpContainer().waitUntilEnabled());
+       return popUp.getPopUpMessage();
+   }
 }

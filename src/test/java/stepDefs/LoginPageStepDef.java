@@ -70,4 +70,9 @@ public class LoginPageStepDef extends DefaultStepsData {
     public void checkThatTextAdminIsDefault(String admin){
         softly.assertThat(loginPageSteps.getTexFromAdminField()).isEqualTo(admin);
     }
+
+    @Then("I check that pop up with text $Invalid_Credentials appears")
+    public void checkThatPopUPInvalidCredentialsAppears(String textPopUp){
+        softly.assertThat(loginPageSteps.getTextFromPopUPInvalidCredentials()).isEqualTo(textPopUp);
+    }
 }
