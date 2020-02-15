@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+
 @Getter
 @Slf4j
 public class PersonalDetailsPage extends BasePage {
@@ -24,6 +25,7 @@ public class PersonalDetailsPage extends BasePage {
     @FindBy(xpath = "//label[@for='emp_gender_1']")
     private WebElementFacade maleRadioButton;
 
+
     @FindBy(xpath = "//label[@for='emp_gender_2']")
     private WebElementFacade femaleRadioButton;
 
@@ -36,5 +38,11 @@ public class PersonalDetailsPage extends BasePage {
     public void clickOnMaleRadioButton() {
         log.info("set Male radio button checked");
         maleRadioButton.waitUntilVisible().waitUntilClickable().click();
+    }
+    public boolean getFemaleButtonBooleanAttribute(){
+        return Boolean.parseBoolean(femaleRadioButton.waitUntilEnabled().getAttribute("checked"));
+    }
+    public boolean getMaleButtonBooleanAttribute(){
+        return Boolean.parseBoolean(maleRadioButton.waitUntilEnabled().getAttribute("checked"));
     }
 }

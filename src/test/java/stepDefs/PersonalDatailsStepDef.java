@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import steps.DefaultStepsData;
 import steps.PersonalDetailsSteps;
 
@@ -52,30 +53,17 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
 
     @Then("I check that Female radio button is unchecked")
     public void checkThatFemaleIsUnchecked(){
-       /*
-       Костиль
-       if(personalDetailsPage.getFemaleRadioButton().isClickable()){
-            return false;
-        }
-        else return true;*/
-      // softly.assertThat(personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked")).isEqualTo(false);
-        Assert.assertTrue(personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked").equals(false));
-
+        softly.assertThat(personalDetailsPage.getFemaleButtonBooleanAttribute()).isEqualTo(false);
     }
 
     @When ("I set Female radio button as checked")
     public void setFemaleRadioButton(){
         personalDetailsPage.getFemaleRadioButton().waitUntilClickable().click();
     }
+
     @Then("I check that Male radio button is unchecked")
     public void checkThatMaleIsUnchecked(){
-       /*
-       Костиль
-       if (personalDetailsPage.getMaleRadioButton().isClickable()) {
-            return false;
-        }else return true;*/
-        //softly.assertThat(personalDetailsPage.getMaleRadioButton().waitUntilEnabled().getAttribute("checked")).isEqualTo(false);
-        Assert.assertTrue(personalDetailsPage.getMaleRadioButton().waitUntilEnabled().getAttribute("checked").equals(false));
+        softly.assertThat(personalDetailsPage.getMaleButtonBooleanAttribute()).isEqualTo(false);
     }
 
 
