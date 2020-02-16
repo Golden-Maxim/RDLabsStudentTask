@@ -66,5 +66,18 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
         softly.assertThat(personalDetailsPage.getMaleButtonBooleanAttribute()).isEqualTo(false);
     }
 
-
+    @When("I set Date of Birth as tomorrow date")
+    public void setDataOfBirthAsTommorowDate(){
+        String currentDate = personalDetailsSteps.getValueFromDateOfBirthField();
+        String updatedDate = getDateInFutureOrPastFromNow(DATEPATTERN_MY, 1);
+        personalDetailsSteps.enterDateIntoDateBirthField(updatedDate);
+    }
+    @When("I click on save button in Personal Details form")
+    public void clickOnTheSaveButton(){
+        personalDetailsPage.getSaveButton().submit();
+    }
+    @Then("I check that error message with text $Should_be_on_or_before_today appears under Date of Birth field")
+    public void checkThatErrorMessageContains (String message){
+        softly.assertThat(personalDetailsPage.getErrorMessage().getText()).isEqualTo(message);
+    }
 }
