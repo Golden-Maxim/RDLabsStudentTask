@@ -53,7 +53,7 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
 
     @Then("I check that Female radio button is unchecked")
     public void checkThatFemaleIsUnchecked(){
-        softly.assertThat(personalDetailsPage.getFemaleButtonBooleanAttribute()).isEqualTo(false);
+        softly.assertThat(personalDetailsSteps.getFemaleButtonBooleanAttribute()).isEqualTo(false);
     }
 
     @When ("I set Female radio button as checked")
@@ -63,7 +63,7 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
 
     @Then("I check that Male radio button is unchecked")
     public void checkThatMaleIsUnchecked(){
-        softly.assertThat(personalDetailsPage.getMaleButtonBooleanAttribute()).isEqualTo(false);
+        softly.assertThat(personalDetailsSteps.getMaleButtonBooleanAttribute()).isEqualTo(false);
     }
 
     @When("I set Date of Birth as tomorrow date")
@@ -76,8 +76,23 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
     public void clickOnTheSaveButton(){
         personalDetailsPage.getSaveButton().submit();
     }
+
     @Then("I check that error message with text $Should_be_on_or_before_today appears under Date of Birth field")
     public void checkThatErrorMessageContains (String message){
         softly.assertThat(personalDetailsPage.getErrorMessage().getText()).isEqualTo(message);
     }
+
+    @Then("I check that EEO Race and Ethnicity select has NO value by default")
+    public void checkThatEEORaceAndEthnicityIsDefault(){
+        softly.assertThat(personalDetailsSteps.getDefaultEEORaceAndEthnicityStatus()).isEqualTo(false);
+    }
+    @When("I click on Save button in Personal Details form")
+    public void clickOnTheSaveButtonAC_6(){
+        personalDetailsPage.getSaveButton().submit();
+    }
+    @Then("I check that error message with text $Required appears under EEO Race and Ethnicity field")
+    public void checkThatRequiredAppearsUuderEEORace(String text){
+       softly.assertThat(personalDetailsSteps.getMessageFromEEORaceAndEthnicity()).isEqualTo((text));
+    }
+
 }

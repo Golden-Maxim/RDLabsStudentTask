@@ -26,6 +26,21 @@ public class PersonalDetailsSteps extends DefaultStepsData {
                 .stream().map(we -> we.getAttribute("innerText")).collect(Collectors.toList());
         return nationalityOptions;
     }
-
+    @Step
+    public boolean getFemaleButtonBooleanAttribute(){
+        return Boolean.parseBoolean(personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked"));
+    }
+    @Step
+    public boolean getMaleButtonBooleanAttribute(){
+        return Boolean.parseBoolean(personalDetailsPage.getMaleRadioButton().waitUntilEnabled().getAttribute("checked"));
+    }
+    @Step
+    public boolean getDefaultEEORaceAndEthnicityStatus(){
+        return Boolean.parseBoolean(personalDetailsPage.getEEORaceAndEthnicity().getAttribute("checked"));
+    }
+    @Step
+    public String getMessageFromEEORaceAndEthnicity(){
+        return personalDetailsPage.getEEORaceAndEthnicityMessage().getText();
+    }
 
 }

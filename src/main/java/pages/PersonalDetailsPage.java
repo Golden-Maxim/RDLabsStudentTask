@@ -34,6 +34,12 @@ public class PersonalDetailsPage extends BasePage {
     @FindBy(xpath = "//span[@class = 'help-block-message']")
     private WebElementFacade errorMessage;
 
+    @FindBy(xpath = "//*[@id=\"eeo_race_ent_inputfileddiv\"]/div/input")
+    private WebElementFacade EEORaceAndEthnicity;
+
+    @FindBy(xpath = "//*[@id=\"eeo_race_ent_inputfileddiv\"]/span")
+    private WebElementFacade EEORaceAndEthnicityMessage;
+
     public void enterDateOfBirth(String date) {
         log.info(String.format("Putting %s date into [Date of birth] field", date));
         dateOfBirthInputField.clear();
@@ -44,12 +50,12 @@ public class PersonalDetailsPage extends BasePage {
         log.info("set Male radio button checked");
         maleRadioButton.waitUntilVisible().waitUntilClickable().click();
     }
-    public boolean getFemaleButtonBooleanAttribute(){
+   /* public boolean getFemaleButtonBooleanAttribute(){
         return Boolean.parseBoolean(femaleRadioButton.waitUntilEnabled().getAttribute("checked"));
     }
     public boolean getMaleButtonBooleanAttribute(){
         return Boolean.parseBoolean(maleRadioButton.waitUntilEnabled().getAttribute("checked"));
-    }
+    }*/
    /* public String getTextFromErrorMessage(){
         return errorMessage.getText();
     }*/
