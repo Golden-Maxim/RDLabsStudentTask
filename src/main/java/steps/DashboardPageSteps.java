@@ -65,7 +65,7 @@ public class DashboardPageSteps extends DefaultStepsData {
     }
 
     public int getValueUnderNews(){
-        String number = dashboardPage.getShowingNumber().getText().split("/")[1].replace(" ","");
+        String number = dashboardPage.getShowingNumber().getText().split("/")[1].trim();
        return Integer.parseInt(number);
     }
 
