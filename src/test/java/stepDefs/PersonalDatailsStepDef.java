@@ -1,12 +1,11 @@
 package stepDefs;
 
 import com.google.common.collect.Ordering;
-import com.google.inject.internal.cglib.proxy.$Factory;
+
+import emuns.ItemsSelect;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import steps.DefaultStepsData;
 import steps.PersonalDetailsSteps;
 
@@ -14,6 +13,7 @@ import java.util.List;
 
 import static utils.DateUtils.*;
 import static utils.SessionVariables.DATE_OF_BIRTH;
+
 
 public class PersonalDatailsStepDef extends DefaultStepsData {
 
@@ -84,7 +84,8 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
 
     @Then("I check that EEO Race and Ethnicity select has NO value by default")
     public void checkThatEEORaceAndEthnicityIsDefault(){
-        softly.assertThat(personalDetailsSteps.getDefaultEEORaceAndEthnicityStatus()).isEqualTo(false);
+        softly.assertThat(personalDetailsSteps.getDefaultEEORaceAndEthnicityStatus()).isEqualTo(ItemsSelect.DEFAULT_VALUE.value);
+
     }
     @When("I click on Save button in Personal Details form")
     public void clickOnTheSaveButtonAC_6(){

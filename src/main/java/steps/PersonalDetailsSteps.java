@@ -26,19 +26,23 @@ public class PersonalDetailsSteps extends DefaultStepsData {
                 .stream().map(we -> we.getAttribute("innerText")).collect(Collectors.toList());
         return nationalityOptions;
     }
+    
     @Step
     public boolean getFemaleButtonBooleanAttribute(){
         System.out.println("Attribute from Female: " + personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked"));
         return Boolean.parseBoolean(personalDetailsPage.getFemaleRadioButton().find(By.xpath("./../input")).waitUntilEnabled().getAttribute("checked"));
     }
+
     @Step
     public boolean getMaleButtonBooleanAttribute(){
         return Boolean.parseBoolean(personalDetailsPage.getMaleRadioButton().find(By.xpath("./../input")).waitUntilEnabled().getAttribute("checked"));
     }
+
     @Step
-    public boolean getDefaultEEORaceAndEthnicityStatus(){
-        return Boolean.parseBoolean(personalDetailsPage.getEEORaceAndEthnicity().getAttribute("checked"));
+    public String getDefaultEEORaceAndEthnicityStatus(){
+        return personalDetailsPage.getEEORaceAndEthnicity().getValue();
     }
+
     @Step
     public String getMessageFromEEORaceAndEthnicity(){
         return personalDetailsPage.getEEORaceAndEthnicityMessage().getText();

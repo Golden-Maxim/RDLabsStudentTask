@@ -25,7 +25,7 @@ Then I check that all countries in Nationality select box ordered by name asc
 
 !-- TODO implement this scenario
 Scenario: AC-4 user not allow to check both Male and Female radio button in Gender section
-Meta: @newTask @debug
+Meta: @newTask
 When I under Gender label I set Male radio button as checked
 Then I check that Female radio button is unchecked
 When I set Female radio button as checked
@@ -41,7 +41,7 @@ Then I check that error message with text Should be on or before today appears u
 
 !-- TODO implement this scenario
 Scenario: AC-6 Check that error message with text Required appears under EEO Race and Ethnicity field after click on Save button
-Meta: @newTask
+Meta: @newTask @debug
 Then I check that EEO Race and Ethnicity select has NO value by default
 When I click on Save button in Personal Details form
 Then I check that error message with text Required appears under EEO Race and Ethnicity field
