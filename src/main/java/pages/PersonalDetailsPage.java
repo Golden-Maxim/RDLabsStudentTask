@@ -50,13 +50,5 @@ public class PersonalDetailsPage extends BasePage {
         log.info("set Male radio button checked");
         maleRadioButton.waitUntilVisible().waitUntilClickable().click();
     }
-   /* public boolean getFemaleButtonBooleanAttribute(){
-        return Boolean.parseBoolean(femaleRadioButton.waitUntilEnabled().getAttribute("checked"));
-    }
-    public boolean getMaleButtonBooleanAttribute(){
-        return Boolean.parseBoolean(maleRadioButton.waitUntilEnabled().getAttribute("checked"));
-    }*/
-   /* public String getTextFromErrorMessage(){
-        return errorMessage.getText();
-    }*/
+
 }

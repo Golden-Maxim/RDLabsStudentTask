@@ -43,13 +43,23 @@ public class DashboardPageStepDef extends DefaultStepsData {
     }
 
     @When("I click on the three dots button inside $sectionName section")
-    public void clickiOnThreeDotsButton(String sectionName) {
+    public void clickOnThreeDotsButton(String sectionName) {
         dashboardPageSteps.expandContainerClickingOnThreeDots(sectionName);
     }
 
     @Then("Legend component appears in $sectionName section")
     public void checkThatLegendAppears(String sectionName) {
         softly.assertThat(dashboardPageSteps.checkThatLegendAppearsIn(sectionName)).as("Legend component not appers").isTrue();
+    }
+
+    @Then("I check that News section is present on Dashboard page with header $News")
+    public void newsSectionIsPresentOnDashboard(String header){
+        softly.assertThat(dashboardPageSteps.getHeaderOfNewSection()).isEqualTo(header);
+    }
+
+    @Then("I check that news counter (Showing: number / number) under \"News\" section is same as real amount of news in list")
+    public void equalsCountersToNewsList(){
+        softly.assertThat(dashboardPageSteps.getCountItemsListOfNews()).isEqualTo(dashboardPageSteps.getValueUnderNews());
     }
 
 }

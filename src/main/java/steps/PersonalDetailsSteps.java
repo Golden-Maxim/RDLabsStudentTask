@@ -28,6 +28,7 @@ public class PersonalDetailsSteps extends DefaultStepsData {
     }
     @Step
     public boolean getFemaleButtonBooleanAttribute(){
+        System.out.println("Attribute from Female: " + personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked"));
         return Boolean.parseBoolean(personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked"));
     }
     @Step
