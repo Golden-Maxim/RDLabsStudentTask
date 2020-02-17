@@ -29,11 +29,11 @@ public class PersonalDetailsSteps extends DefaultStepsData {
     @Step
     public boolean getFemaleButtonBooleanAttribute(){
         System.out.println("Attribute from Female: " + personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked"));
-        return Boolean.parseBoolean(personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked"));
+        return Boolean.parseBoolean(personalDetailsPage.getFemaleRadioButton().find(By.xpath("./../input")).waitUntilEnabled().getAttribute("checked"));
     }
     @Step
     public boolean getMaleButtonBooleanAttribute(){
-        return Boolean.parseBoolean(personalDetailsPage.getMaleRadioButton().waitUntilEnabled().getAttribute("checked"));
+        return Boolean.parseBoolean(personalDetailsPage.getMaleRadioButton().find(By.xpath("./../input")).waitUntilEnabled().getAttribute("checked"));
     }
     @Step
     public boolean getDefaultEEORaceAndEthnicityStatus(){
