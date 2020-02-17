@@ -13,7 +13,7 @@ Meta: @regression
 Then check box Smoker is not checked
 
 Scenario: AC-2 Check value in Date of Birth field is not saved after refresh page without clicking on Save button
-Meta: @regression
+Meta: @regression @debug
 Then I save current Date of Birth to session
 When I change Date of Birth added 1 day to old date
 And refresh page
@@ -41,7 +41,7 @@ Then I check that error message with text Should be on or before today appears u
 
 !-- TODO implement this scenario
 Scenario: AC-6 Check that error message with text Required appears under EEO Race and Ethnicity field after click on Save button
-Meta: @newTask @debug
+Meta: @newTask
 Then I check that EEO Race and Ethnicity select has NO value by default
 When I click on Save button in Personal Details form
 Then I check that error message with text Required appears under EEO Race and Ethnicity field

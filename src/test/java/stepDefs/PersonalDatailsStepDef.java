@@ -85,12 +85,13 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
     @Then("I check that EEO Race and Ethnicity select has NO value by default")
     public void checkThatEEORaceAndEthnicityIsDefault(){
         softly.assertThat(personalDetailsSteps.getDefaultEEORaceAndEthnicityStatus()).isEqualTo(ItemsSelect.DEFAULT_VALUE.value);
-
     }
+
     @When("I click on Save button in Personal Details form")
     public void clickOnTheSaveButtonAC_6(){
         personalDetailsPage.getSaveButton().submit();
     }
+
     @Then("I check that error message with text $Required appears under EEO Race and Ethnicity field")
     public void checkThatRequiredAppearsUuderEEORace(String text){
        softly.assertThat(personalDetailsSteps.getMessageFromEEORaceAndEthnicity()).isEqualTo((text));
