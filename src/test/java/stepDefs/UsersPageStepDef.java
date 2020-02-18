@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
+import org.openqa.selenium.StaleElementReferenceException;
 import steps.DefaultStepsData;
 import steps.UsersSteps;
 
@@ -41,5 +42,25 @@ public class UsersPageStepDef extends DefaultStepsData {
     @When("I click on the Search button in Filter Users window")
     public void clickOnTheSearchButtonInFilterUsersWindow() {
         usersSteps.clickOnTheSearchButton();
+    }
+
+    @Then("I check that Filter user by Status with option $Disabled")
+    public void filterUserByStatusDisabled(String Status) throws InterruptedException {
+        usersSteps.showListFilterStatusAndSwitchToDisabled();
+    }
+    @When ("I click on the Search button")
+    public void clickSearchButton(){
+        usersSteps.clickOnTheSearchButton();
+    }
+
+    @Then ("I check that employee with name $Cassidy_Hope NOT shown in the search result")
+    public boolean checkThatEmployeeNotShowm(String name){
+        try {
+            usersSteps.filterUsersByEmployeeName(name);
+        }catch (StaleElementReferenceException e){
+            return true;
+        }
+
+        return false;
     }
 }

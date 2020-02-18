@@ -4,8 +4,12 @@ import grids.UsersGrid;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.webdriver.javascript.JavascriptExecutorFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import pageComponents.FilterUsersModalWindow;
+import pages.BasePage;
 
 import java.util.List;
 
@@ -50,4 +54,13 @@ public class UsersSteps extends DefaultStepsData {
         log.info("Getting [Users] grid");
         return new UsersGrid().getAllItems(usersPage.getDriver());
     }
+
+    @Step
+    public void showListFilterStatusAndSwitchToDisabled(){
+        log.info("Show list of status filter and Switch to Disabled");
+        usersPage.clickOnFilterStatusButton();
+        usersPage.getSelectFilterStatus().sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+    }
+
 }
+
