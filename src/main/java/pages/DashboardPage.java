@@ -5,7 +5,13 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.assertj.core.util.IterableUtil.sizeOf;
 
 
 @Getter
@@ -41,17 +47,15 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//div[@id = 'panel_draggable_2_9']//div[@class = 'dashboardCard-title-for-card']")
     private WebElementFacade headerOfSectionNews;
 
-    @FindBy(xpath = "//div[contains(@id,'newsOnDashboard')]//ul/li")
-    private List<WebElementFacade> countOfNews;
+    private By countOfNews = By.xpath("//div[contains(@id,'newsOnDashboard')]//ul/li");
 
     @FindBy(xpath = "//*[@id=\"dashboard__viewNewsOnDashboard\"]/div[2]/div[2]")
-    private WebElementFacade showingNumber;
+    private WebElementFacade showingNumberNews;
 
     @FindBy(xpath = "//div[@id = 'panel_draggable_2_8']//div[@class = 'dashboardCard-title-for-card']")
     private WebElementFacade headerOfSectionDocuments;
 
-    @FindBy(xpath = "//div[contains(@id,'documentsOnDashboard')]//ul/li")
-    private List<WebElementFacade> countOfDocuments;
+    private By countOfDocuments = By.xpath("//div[contains(@id,'documentsOnDashboard')]//ul/li");
 
     @FindBy(xpath = "//*[@id=\"dashboard__viewDocumentsOnDashboard\"]/div[2]/div[2]")
     private WebElementFacade showingNumberOfDocuments;
@@ -61,5 +65,20 @@ public class DashboardPage extends BasePage {
         hideMenuButton.waitUntilVisible().waitUntilClickable().click();
     }
 
-
+    public int getRealCountOf(String newsOrDocuments) {
+        List<String> container = new ArrayList<>();
+        switch (newsOrDocuments) {
+            case "News":
+                for (WebElement element : getDriver().findElements(countOfNews)) {
+                    container.add(element.getText());
+                }
+                break;
+            case "Documents":
+                for (WebElement element : getDriver().findElements(countOfDocuments)) {
+                    container.add(element.getText());
+                }
+                break;
+        }
+        return sizeOf(container);
+    }
 }

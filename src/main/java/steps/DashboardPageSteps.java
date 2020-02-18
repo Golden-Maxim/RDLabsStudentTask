@@ -52,40 +52,35 @@ public class DashboardPageSteps extends DefaultStepsData {
         }
     }
     @Step
-    public String getHeaderOfNewSection(){
-       return dashboardPage.getHeaderOfSectionNews().getText();
+    public String getTextFromHeader(String nameHeader){
+        ItemsContainer itemsContainer = ItemsContainer.getItemsContainerName(nameHeader);
+        switch (itemsContainer) {
+            case NEWS:
+                return dashboardPage.getHeaderOfSectionNews().getText();
+            case DOCUMENTS:
+                return dashboardPage.getHeaderOfSectionDocuments().getText();
+            default:
+                throw new IllegalStateException("Unexpected value: " + itemsContainer);
+        }
     }
 
     @Step
-    public String getHeaderOfDocuments(){
-        return dashboardPage.getHeaderOfSectionDocuments().getText();
-    }
-    @Step
-    public int getCountItemsListOfNews() {
-        int count = 0;
-        for (WebElement element:dashboardPage.getCountOfNews()){
-            count++;
-        }
-        return count;
-    }
-    @Step
-    public int getCountItemsListOfDocuments() {
-        int count = 0;
-        for (WebElement element:dashboardPage.getCountOfDocuments()){
-            count++;
-        }
-        return count;
-    }
-    @Step
-    public int getValueUnderNews(){
-        String number = dashboardPage.getShowingNumber().getText().split("/")[1].trim();
-        return Integer.parseInt(number);
+    public int getCountItemsList(String listOf) {
+        return dashboardPage.getRealCountOf(listOf);
     }
 
     @Step
-    public int getValueUnderDocuments(){
-        String number = dashboardPage.getShowingNumberOfDocuments().getText().split("/")[1].trim();
-        return Integer.parseInt(number);
+    public int getValueUnderSection(String section){
+        String countText;
+        switch (section) {
+            case "News":
+                countText = dashboardPage.getShowingNumberNews().getText().split("/")[1].trim();
+                return Integer.parseInt(countText);
+            case "Documents":
+                countText = dashboardPage.getShowingNumberOfDocuments().getText().split("/")[1].trim();
+                return Integer.parseInt(countText);
+        }
+        return -1;
     }
 
 
