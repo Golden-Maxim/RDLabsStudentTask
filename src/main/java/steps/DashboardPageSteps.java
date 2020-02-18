@@ -39,7 +39,7 @@ public class DashboardPageSteps extends DefaultStepsData {
                 throw new IllegalStateException("Unexpected value: " + itemsContainer);
         }
     }
-
+    @Step
     public boolean checkThatLegendAppearsIn(String sectionName) {
         ItemsContainer itemsContainer = ItemsContainer.getItemsContainerName(sectionName);
         switch (itemsContainer) {
@@ -51,11 +51,16 @@ public class DashboardPageSteps extends DefaultStepsData {
                 throw new IllegalStateException("Unexpected value: " + itemsContainer);
         }
     }
-
+    @Step
     public String getHeaderOfNewSection(){
        return dashboardPage.getHeaderOfSectionNews().getText();
     }
 
+    @Step
+    public String getHeaderOfDocuments(){
+        return dashboardPage.getHeaderOfSectionDocuments().getText();
+    }
+    @Step
     public int getCountItemsListOfNews() {
         int count = 0;
         for (WebElement element:dashboardPage.getCountOfNews()){
@@ -63,10 +68,26 @@ public class DashboardPageSteps extends DefaultStepsData {
         }
         return count;
     }
-
+    @Step
+    public int getCountItemsListOfDocuments() {
+        int count = 0;
+        for (WebElement element:dashboardPage.getCountOfDocuments()){
+            count++;
+        }
+        return count;
+    }
+    @Step
     public int getValueUnderNews(){
         String number = dashboardPage.getShowingNumber().getText().split("/")[1].trim();
-       return Integer.parseInt(number);
+        return Integer.parseInt(number);
     }
+
+    @Step
+    public int getValueUnderDocuments(){
+        String number = dashboardPage.getShowingNumberOfDocuments().getText().split("/")[1].trim();
+        return Integer.parseInt(number);
+    }
+
+
 
 }

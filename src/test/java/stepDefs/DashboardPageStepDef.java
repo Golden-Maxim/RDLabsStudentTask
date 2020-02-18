@@ -62,4 +62,13 @@ public class DashboardPageStepDef extends DefaultStepsData {
         softly.assertThat(dashboardPageSteps.getCountItemsListOfNews()).isEqualTo(dashboardPageSteps.getValueUnderNews());
     }
 
+    @Then("I check that Documents section is present on Dashboard page with header $Documents")
+    public void sectionDocumentsPresentOnDashboard(String header){
+        softly.assertThat(dashboardPageSteps.getHeaderOfDocuments()).isEqualTo(header);
+    }
+    @Then("I check that news counter (Showing: number / number) under  Documents section is same as real amount of news in list")
+    public void equalsCountedOfDocumentsToNewList(){
+        softly.assertThat(dashboardPageSteps.getCountItemsListOfDocuments()).isEqualTo(dashboardPageSteps.getValueUnderDocuments());
+    }
+
 }
