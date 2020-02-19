@@ -19,7 +19,7 @@ Then record is shown with following parameters:
 
 !-- TODO implement this scenario
 Scenario: AC-2 Filter by Status 'Disabled' and check that Employee with name Cassidy Hope is NOT shown in the search result
-Meta: @newTask @debug
+Meta: @newTask
 When I open filter users window
 Then Filter user by Status with option Disabled
 When I click on the Search button
@@ -36,4 +36,9 @@ Then I check that employee with name Cecil Bonaparte is shown in the search resu
 
 Scenario: AC-4 Check that values saved after closing filter users window
 Meta: @newTask @debug
-
+When I open filter users window
+And Select any value from Status select
+And Select any value from Admin Role select
+When I click on the Search button
+And Click on the Filter users button again
+Then Check that previously entered values saved in Status and Admin Role selects
