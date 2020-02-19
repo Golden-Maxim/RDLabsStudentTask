@@ -54,7 +54,6 @@ public class UsersSteps extends DefaultStepsData {
     @Step
     public void switchFilter(String filter) {
         FilterUsersModalWindow filterUsersModalWindow = FILTER_USERS_WINDOW.get();
-        //log.info("Show list of status filter and Switch to Disabled");
         switch (filter) {
             case "Status":
                     filterUsersModalWindow.getStatus().click();

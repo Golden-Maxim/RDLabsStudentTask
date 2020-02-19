@@ -34,4 +34,13 @@ public class WorkShiftsSteps extends DefaultStepsData {
     private TimePicker getTimePickerElement() {
         return new TimePicker(workShiftPage.getTimePickerLocator());
     }
+
+    @Step
+    public void test(){
+        List<WorkShiftGrid>allItems = getWorkShiftGrid();
+        for (WorkShiftGrid single:allItems){
+            log.info("MyUserObject = " + single);
+        }
+    }
+
 }

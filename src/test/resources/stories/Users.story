@@ -35,7 +35,7 @@ Then I check that employee with name Cecil Bonaparte is shown in the search resu
 !-- TODO implement this scenario
 
 Scenario: AC-4 Check that values saved after closing filter users window
-Meta: @newTask @debug
+Meta: @newTask
 When I open filter users window
 And Select any value from Status select
 And Select any value from Admin Role select

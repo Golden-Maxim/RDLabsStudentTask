@@ -12,6 +12,9 @@ And I go to Work Shifts page
 
 !-- TODO implement this scenario
 Scenario: AC-1 Check that by default General and Twilight work shifts types are shown on work shifts page
+Meta: @newTask @debug
+Then Check that rows with values General, Twilight in WorkShift column are shown by default
+
 
 !-- TODO implement this scenario
 Scenario: AC-2 Check that Work Shift field on Add work shift model requiired
