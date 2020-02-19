@@ -52,11 +52,24 @@ public class UsersSteps extends DefaultStepsData {
     }
 
     @Step
-    public void switchFilterStatus() {
-        log.info("Show list of status filter and Switch to Disabled");
+    public void switchFilter(String filter) {
         FilterUsersModalWindow filterUsersModalWindow = FILTER_USERS_WINDOW.get();
-        filterUsersModalWindow.getStatus().click();
-        filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().waitUntilClickable().click();
+        //log.info("Show list of status filter and Switch to Disabled");
+        switch (filter) {
+            case "Status":
+                    filterUsersModalWindow.getStatus().click();
+                    filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().waitUntilClickable().click();
+                    break;
+            case "Admin Role":
+                filterUsersModalWindow.getAdminRole().click();
+                filterUsersModalWindow.getAdminRole().find(By.xpath("./..//ul//span[text()='Global Admin']")).waitUntilEnabled().waitUntilClickable().click();
+                break;
+        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 //        usersPage.clickOnElementWithJSExecutor(getDriver(),filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")));
 //        filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().click();
@@ -69,6 +82,7 @@ public class UsersSteps extends DefaultStepsData {
         List<UsersGrid> allItems = getUsersGrid();
         for (UsersGrid singeleObject : allItems) {
             if (singeleObject.getEmployeeName().equals(employeeName)) {
+                log.info("MyUserObject = " + singeleObject );
                 return true;
             }
         }

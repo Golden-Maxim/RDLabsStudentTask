@@ -21,12 +21,19 @@ Then record is shown with following parameters:
 Scenario: AC-2 Filter by Status 'Disabled' and check that Employee with name Cassidy Hope is NOT shown in the search result
 Meta: @newTask @debug
 When I open filter users window
-Then I check that Filter user by Status with option Disabled
+Then Filter user by Status with option Disabled
 When I click on the Search button
-Then I check that employee with name Cassidy Hope NOT shown in the search result
+Then I check that employee with name Cassidy Hope is NOT shown in the search result
 
 !-- TODO implement this scenario
 Scenario: AC-3 Filter by Admin Role 'Global Admin' and check that Employee with name Cecil Bonaparte is shown in the search result
-
+Meta: @newTask
+When I open filter users window
+Then Filter user by Admin Role with option Global Admin
+When I click on the Search button
+Then I check that employee with name Cecil Bonaparte is shown in the search result
 !-- TODO implement this scenario
+
 Scenario: AC-4 Check that values saved after closing filter users window
+Meta: @newTask @debug
+

@@ -44,10 +44,9 @@ public class UsersPageStepDef extends DefaultStepsData {
         usersSteps.clickOnTheSearchButton();
     }
 
-    @Then("I check that Filter user by Status with option $Disabled")
+    @Then("Filter user by Status with option Disabled")
     public void filterUserByStatusDisabled() {
-        usersSteps.switchFilterStatus();
-
+        usersSteps.switchFilter("Status");
     }
 
     @When("I click on the Search button")
@@ -55,8 +54,20 @@ public class UsersPageStepDef extends DefaultStepsData {
         usersSteps.clickOnTheSearchButton();
     }
 
-    @Then("I check that employee with name $Cassidy_Hope NOT shown in the search result")
-    public void checkThatEmployeeNotShowm(String name) {
+    @Then("I check that employee with name $name is $condition in the search result")
+    public void checkThatEmployeeNotShowm(String name,String condition) {
+        if(condition.contains("NOT")){
         softly.assertThat(usersSteps.employeeIsShown(name)).isEqualTo(false);
+        }
+        else {
+            softly.assertThat(usersSteps.employeeIsShown(name)).isEqualTo(true);
+        }
     }
+
+    @Then ("Filter user by Admin Role with option $Global_Admin")
+    public void filterUserByAdminRole(){
+        usersSteps.switchFilter("Admin Role");
+    }
+
+
 }
