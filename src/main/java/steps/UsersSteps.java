@@ -4,12 +4,8 @@ import grids.UsersGrid;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.webdriver.javascript.JavascriptExecutorFacade;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import pageComponents.FilterUsersModalWindow;
-import pages.BasePage;
 
 import java.util.List;
 
@@ -56,11 +52,31 @@ public class UsersSteps extends DefaultStepsData {
     }
 
     @Step
-    public void showListFilterStatusAndSwitchToDisabled(){
+    public void switchFilterStatus() {
         log.info("Show list of status filter and Switch to Disabled");
-        usersPage.clickOnFilterStatusButton();
-        usersPage.getSelectFilterStatus().sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+        FilterUsersModalWindow filterUsersModalWindow = FILTER_USERS_WINDOW.get();
+        filterUsersModalWindow.getStatus().click();
+        filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().waitUntilClickable().click();
+
+//        usersPage.clickOnElementWithJSExecutor(getDriver(),filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")));
+//        filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().click();
+        //  usersPage.getSelectFilterStatus().sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+        //((JavascriptExecutor) getDriver()).executeScript("document.querySelector('#status_inputfileddiv > div > input').setAttribute('value','Disabled');");
     }
 
+    @Step
+    public boolean employeeIsShown(String employeeName) {
+        List<UsersGrid> allItems = getUsersGrid();
+        for (UsersGrid singeleObject : allItems) {
+            if (singeleObject.getEmployeeName().equals(employeeName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+/*
+    List<UsersGrid> usersGrid = usersSteps.getUsersGrid();
+    List<UsersGrid> cassidy_hope = usersGrid.stream().filter(usersGrid1 -> usersGrid1.getEmployeeName().equals("Cassidy Hope")).collect(Collectors.toList());*/
 

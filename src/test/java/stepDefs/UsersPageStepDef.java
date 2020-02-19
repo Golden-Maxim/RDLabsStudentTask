@@ -45,22 +45,18 @@ public class UsersPageStepDef extends DefaultStepsData {
     }
 
     @Then("I check that Filter user by Status with option $Disabled")
-    public void filterUserByStatusDisabled(String Status) throws InterruptedException {
-        usersSteps.showListFilterStatusAndSwitchToDisabled();
+    public void filterUserByStatusDisabled() {
+        usersSteps.switchFilterStatus();
+
     }
-    @When ("I click on the Search button")
-    public void clickSearchButton(){
+
+    @When("I click on the Search button")
+    public void clickSearchButton() {
         usersSteps.clickOnTheSearchButton();
     }
 
-    @Then ("I check that employee with name $Cassidy_Hope NOT shown in the search result")
-    public boolean checkThatEmployeeNotShowm(String name){
-        try {
-            usersSteps.filterUsersByEmployeeName(name);
-        }catch (StaleElementReferenceException e){
-            return true;
-        }
-
-        return false;
+    @Then("I check that employee with name $Cassidy_Hope NOT shown in the search result")
+    public void checkThatEmployeeNotShowm(String name) {
+        softly.assertThat(usersSteps.employeeIsShown(name)).isEqualTo(false);
     }
 }

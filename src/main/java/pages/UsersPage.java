@@ -31,6 +31,7 @@ public class UsersPage extends BasePage {
 
     public void clickOnFilterStatusButton(){
         log.info("Clicking on the [Filter Status]");
+
         selectFilterStatus.click();
         //((JavascriptExecutor)getDriver()).executeScript("document.querySelectorAll('#status > option:nth-child(3)')[2]");
 
