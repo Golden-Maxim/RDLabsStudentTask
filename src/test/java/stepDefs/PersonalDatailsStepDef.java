@@ -1,7 +1,6 @@
 package stepDefs;
 
 import com.google.common.collect.Ordering;
-
 import emuns.ItemsSelect;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Then;
@@ -11,7 +10,8 @@ import steps.PersonalDetailsSteps;
 
 import java.util.List;
 
-import static utils.DateUtils.*;
+import static utils.DateUtils.DATEPATTERN_MY;
+import static utils.DateUtils.getDateInFutureOrPastFromNow;
 import static utils.SessionVariables.DATE_OF_BIRTH;
 
 
@@ -29,7 +29,7 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
     @When("I change Date of Birth added 1 day to old date")
     public void changeDateOfBirth() {
         String currentDate = personalDetailsSteps.getValueFromDateOfBirthField();
-        String updatedDate = getDateInFutureOrPastFromNow(DATEPATTERN_MY, 1,currentDate);
+        String updatedDate = getDateInFutureOrPastFromNow(DATEPATTERN_MY, 1, currentDate);
         personalDetailsSteps.enterDateIntoDateBirthField(updatedDate);
     }
 
@@ -47,54 +47,55 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
     }
 
     @When("I under Gender label I set Male radio button as checked")
-    public void setMaleRadioButton(){
+    public void setMaleRadioButton() {
         personalDetailsPage.getMaleRadioButton().waitUntilClickable().click();
     }
 
     @Then("I check that Female radio button is unchecked")
-    public void checkThatFemaleIsUnchecked(){
+    public void checkThatFemaleIsUnchecked() {
         softly.assertThat(personalDetailsSteps.getFemaleButtonBooleanAttribute()).isEqualTo(false);
     }
 
-    @When ("I set Female radio button as checked")
-    public void setFemaleRadioButton(){
+    @When("I set Female radio button as checked")
+    public void setFemaleRadioButton() {
         personalDetailsPage.getFemaleRadioButton().waitUntilClickable().click();
     }
 
     @Then("I check that Male radio button is unchecked")
-    public void checkThatMaleIsUnchecked(){
+    public void checkThatMaleIsUnchecked() {
         softly.assertThat(personalDetailsSteps.getMaleButtonBooleanAttribute()).isEqualTo(false);
     }
 
     @When("I set Date of Birth as tomorrow date")
-    public void setDataOfBirthAsTommorowDate(){
+    public void setDataOfBirthAsTommorowDate() {
         String currentDate = personalDetailsSteps.getValueFromDateOfBirthField();
         String updatedDate = getDateInFutureOrPastFromNow(DATEPATTERN_MY, 1);
         personalDetailsSteps.enterDateIntoDateBirthField(updatedDate);
     }
+
     @When("I click on save button in Personal Details form")
-    public void clickOnTheSaveButton(){
+    public void clickOnTheSaveButton() {
         personalDetailsPage.getSaveButton().submit();
     }
 
     @Then("I check that error message with text $Should_be_on_or_before_today appears under Date of Birth field")
-    public void checkThatErrorMessageContains (String message){
+    public void checkThatErrorMessageContains(String message) {
         softly.assertThat(personalDetailsPage.getErrorMessage().getText()).isEqualTo(message);
     }
 
     @Then("I check that EEO Race and Ethnicity select has NO value by default")
-    public void checkThatEEORaceAndEthnicityIsDefault(){
+    public void checkThatEEORaceAndEthnicityIsDefault() {
         softly.assertThat(personalDetailsSteps.getDefaultEEORaceAndEthnicityStatus()).isEqualTo(ItemsSelect.DEFAULT_VALUE.value);
     }
 
     @When("I click on Save button in Personal Details form")
-    public void clickOnTheSaveButtonAC_6(){
+    public void clickOnTheSaveButtonAC_6() {
         personalDetailsPage.getSaveButton().submit();
     }
 
     @Then("I check that error message with text $Required appears under EEO Race and Ethnicity field")
-    public void checkThatRequiredAppearsUuderEEORace(String text){
-       softly.assertThat(personalDetailsSteps.getMessageFromEEORaceAndEthnicity()).isEqualTo((text));
+    public void checkThatRequiredAppearsUuderEEORace(String text) {
+        softly.assertThat(personalDetailsSteps.getMessageFromEEORaceAndEthnicity()).isEqualTo((text));
     }
 
 }

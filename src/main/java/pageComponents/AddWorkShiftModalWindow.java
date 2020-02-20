@@ -29,7 +29,7 @@ public class AddWorkShiftModalWindow {
         this.fromClockIcon = fromInputField.find(By.xpath("./..//i[contains(@class,'time-picker-open-icon')]"));
     }
 
-    public void clickOnTheSafeButton(){
+    public void clickOnTheSafeButton() {
         log.info("Click on the save button");
         this.saveButton.waitUntilEnabled().waitUntilClickable().click();
     }

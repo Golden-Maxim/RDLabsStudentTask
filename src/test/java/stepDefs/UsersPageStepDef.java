@@ -5,12 +5,10 @@ import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
-import org.openqa.selenium.StaleElementReferenceException;
 import pageComponents.FilterUsersModalWindow;
 import steps.DefaultStepsData;
 import steps.UsersSteps;
 
-import javax.annotation.WillCloseWhenClosed;
 import java.util.List;
 import java.util.Map;
 

@@ -6,7 +6,6 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import steps.DefaultStepsData;
 import steps.LoginPageSteps;
@@ -60,19 +59,19 @@ public class LoginPageStepDef extends DefaultStepsData {
         WebElementFacade socialMediaContainer = loginPage.getSocialMediaContainer();
         for (Map<String, String> row : rows) {
             String socialMediaButtonName = row.get("social_media_button");
-            boolean isButtonVisible = socialMediaContainer.then(By.xpath(".//a[contains(@class,'"+ socialMediaButtonName +"')]")).isVisible();
+            boolean isButtonVisible = socialMediaContainer.then(By.xpath(".//a[contains(@class,'" + socialMediaButtonName + "')]")).isVisible();
             softly.assertThat(isButtonVisible).as(String.format("button %s not visible", socialMediaButtonName)).isTrue();
         }
     }
 
 
     @Then("I check that text '$admin' admin is shown by default on login page in user name field")
-    public void checkThatTextAdminIsDefault(String admin){
+    public void checkThatTextAdminIsDefault(String admin) {
         softly.assertThat(loginPageSteps.getTexFromAdminField()).isEqualTo(admin);
     }
 
     @Then("I check that pop up with text $Invalid_Credentials appears")
-    public void checkThatPopUPInvalidCredentialsAppears(String textPopUp){
+    public void checkThatPopUPInvalidCredentialsAppears(String textPopUp) {
         softly.assertThat(loginPageSteps.getTextFromPopUPInvalidCredentials()).isEqualTo(textPopUp);
     }
 }

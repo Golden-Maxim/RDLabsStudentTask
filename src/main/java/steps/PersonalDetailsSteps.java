@@ -1,8 +1,8 @@
 package steps;
 
-import com.google.inject.internal.asm.$AnnotationVisitor;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,23 +27,23 @@ public class PersonalDetailsSteps extends DefaultStepsData {
     }
 
     @Step
-    public boolean getFemaleButtonBooleanAttribute(){
+    public boolean getFemaleButtonBooleanAttribute() {
         System.out.println("Attribute from Female: " + personalDetailsPage.getFemaleRadioButton().waitUntilEnabled().getAttribute("checked"));
         return Boolean.parseBoolean(personalDetailsPage.getFemaleRadioButton().find(By.xpath("./../input")).waitUntilEnabled().getAttribute("checked"));
     }
 
     @Step
-    public boolean getMaleButtonBooleanAttribute(){
+    public boolean getMaleButtonBooleanAttribute() {
         return Boolean.parseBoolean(personalDetailsPage.getMaleRadioButton().find(By.xpath("./../input")).waitUntilEnabled().getAttribute("checked"));
     }
 
     @Step
-    public String getDefaultEEORaceAndEthnicityStatus(){
+    public String getDefaultEEORaceAndEthnicityStatus() {
         return personalDetailsPage.getEEORaceAndEthnicity().getValue();
     }
 
     @Step
-    public String getMessageFromEEORaceAndEthnicity(){
+    public String getMessageFromEEORaceAndEthnicity() {
         return personalDetailsPage.getEEORaceAndEthnicityMessage().getText();
     }
 

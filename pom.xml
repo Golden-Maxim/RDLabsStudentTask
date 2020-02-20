@@ -14,7 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <serenity-bdd.version>2.0.90</serenity-bdd.version>
     </properties>
-    
+
     <build>
         <plugins>
             <plugin>

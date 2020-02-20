@@ -17,7 +17,4 @@ public class WorkShiftPage extends BasePage {
     WebElementFacade timePickerLocator;
 
 
-
-
-
 }

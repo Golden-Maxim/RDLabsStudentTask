@@ -1,15 +1,9 @@
 package pageComponents;
 
-import driverFactory.DriverManager;
-import grids.UsersGrid;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 
 @Getter
 @Slf4j
@@ -55,7 +49,6 @@ public class FilterUsersModalWindow {
         log.info("Clicking on the [Reset button]");
         this.resetButton.waitUntilEnabled().waitUntilClickable().click();
     }
-
 
 
 }

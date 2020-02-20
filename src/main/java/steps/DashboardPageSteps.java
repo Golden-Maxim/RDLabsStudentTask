@@ -2,10 +2,7 @@ package steps;
 
 import emuns.ItemsContainer;
 import lombok.extern.slf4j.Slf4j;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import org.openqa.selenium.WebElement;
-import sun.awt.windows.WEmbeddedFrame;
 
 @Slf4j
 public class DashboardPageSteps extends DefaultStepsData {
@@ -39,6 +36,7 @@ public class DashboardPageSteps extends DefaultStepsData {
                 throw new IllegalStateException("Unexpected value: " + itemsContainer);
         }
     }
+
     @Step
     public boolean checkThatLegendAppearsIn(String sectionName) {
         ItemsContainer itemsContainer = ItemsContainer.getItemsContainerName(sectionName);
@@ -51,8 +49,9 @@ public class DashboardPageSteps extends DefaultStepsData {
                 throw new IllegalStateException("Unexpected value: " + itemsContainer);
         }
     }
+
     @Step
-    public String getTextFromHeader(String nameHeader){
+    public String getTextFromHeader(String nameHeader) {
         ItemsContainer itemsContainer = ItemsContainer.getItemsContainerName(nameHeader);
         switch (itemsContainer) {
             case NEWS:
@@ -70,7 +69,7 @@ public class DashboardPageSteps extends DefaultStepsData {
     }
 
     @Step
-    public int getValueUnderSection(String section){
+    public int getValueUnderSection(String section) {
         String countText;
         switch (section) {
             case "News":
@@ -82,7 +81,6 @@ public class DashboardPageSteps extends DefaultStepsData {
         }
         return -1;
     }
-
 
 
 }

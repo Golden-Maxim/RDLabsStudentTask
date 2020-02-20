@@ -38,13 +38,13 @@ public class LoginPageSteps extends DefaultStepsData {
     }
 
     @Step
-    public String getTexFromAdminField(){
-         return loginPage.getLoginInputField().waitUntilEnabled().getValue();
+    public String getTexFromAdminField() {
+        return loginPage.getLoginInputField().waitUntilEnabled().getValue();
     }
 
-   @Step
-   public String getTextFromPopUPInvalidCredentials(){
-       PopUp popUp = new PopUp(loginPage.getPopUpContainer().waitUntilEnabled());
-       return popUp.getPopUpMessage();
-   }
+    @Step
+    public String getTextFromPopUPInvalidCredentials() {
+        PopUp popUp = new PopUp(loginPage.getPopUpContainer().waitUntilEnabled());
+        return popUp.getPopUpMessage();
+    }
 }

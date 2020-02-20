@@ -6,10 +6,7 @@ import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.webdriver.Configuration;
 import resources.Constants;
 
-import static net.thucydides.core.ThucydidesSystemProperty.SERENITY_LOGGING;
-import static net.thucydides.core.ThucydidesSystemProperty.WEBDRIVER_BASE_URL;
-import static net.thucydides.core.ThucydidesSystemProperty.WEBDRIVER_DRIVER;
-import static net.thucydides.core.ThucydidesSystemProperty.WEBDRIVER_PROVIDED_TYPE;
+import static net.thucydides.core.ThucydidesSystemProperty.*;
 
 //https://johnfergusonsmart.com/running-individual-scenarios-jbehave-cucumber-serenity-bdd/
 //https://github.com/serenity-bdd/serenity-documentation/blob/master/src/asciidoc/advanced-webdriver.adoc

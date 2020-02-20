@@ -3,13 +3,7 @@ package steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.assertj.core.api.SoftAssertions;
 import org.jbehave.core.annotations.AfterScenario;
-import pages.DashboardPage;
-import pages.EmployeeTimeSheetsPage;
-import pages.LoginPage;
-import pages.MyGoalsPage;
-import pages.PersonalDetailsPage;
-import pages.UsersPage;
-import pages.WorkShiftPage;
+import pages.*;
 
 public class DefaultStepsData extends ScenarioSteps {
 

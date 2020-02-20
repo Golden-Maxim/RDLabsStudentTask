@@ -56,9 +56,9 @@ public class UsersSteps extends DefaultStepsData {
         FilterUsersModalWindow filterUsersModalWindow = FILTER_USERS_WINDOW.get();
         switch (filter) {
             case "Status":
-                    filterUsersModalWindow.getStatus().click();
-                    filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().waitUntilClickable().click();
-                    break;
+                filterUsersModalWindow.getStatus().click();
+                filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().waitUntilClickable().click();
+                break;
             case "Admin Role":
                 filterUsersModalWindow.getAdminRole().click();
                 filterUsersModalWindow.getAdminRole().find(By.xpath("./..//ul//span[text()='Global Admin']")).waitUntilEnabled().waitUntilClickable().click();
@@ -81,7 +81,7 @@ public class UsersSteps extends DefaultStepsData {
         List<UsersGrid> allItems = getUsersGrid();
         for (UsersGrid singeleObject : allItems) {
             if (singeleObject.getEmployeeName().equals(employeeName)) {
-                log.info("MyUserObject = " + singeleObject );
+                log.info("MyUserObject = " + singeleObject);
                 return true;
             }
         }

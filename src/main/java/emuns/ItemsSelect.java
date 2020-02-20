@@ -1,4 +1,5 @@
 package emuns;
+
 import lombok.Getter;
 
 @Getter
