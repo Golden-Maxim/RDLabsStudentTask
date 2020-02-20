@@ -49,6 +49,4 @@ public class FilterUsersModalWindow {
         log.info("Clicking on the [Reset button]");
         this.resetButton.waitUntilEnabled().waitUntilClickable().click();
     }
-
-
 }

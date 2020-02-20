@@ -30,4 +30,14 @@ public class WorkShiftsStepDefs extends DefaultStepsData {
     public void checkErrorMessage(String message) {
         softly.assertThat(workShiftsSteps.messageUnderWorkShift()).isEqualTo(message);
     }
+
+    @When("I using time picker set $10 : $50 value into From filed")
+    public void setHoursAndMinutesFrom(String hours,String minutes){
+        workShiftsSteps.clickOnTheTimePickerIcon();
+        workShiftsSteps.setTimeFrom(hours,minutes);
+    }
+     @When("I using time picker set $18 : $20 value into To filed")
+    public void setHoursAndMinutesTO(String hours, String minutes){
+        workShiftsSteps.clickOnTheBottomTimePickerIcon();
+    }
 }

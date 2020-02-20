@@ -17,7 +17,7 @@ Then Check that rows with values General, Twilight in WorkShift column are shown
 
 !-- TODO implement this scenario
 Scenario: AC-2 Check that Work Shift field on Add work shift model requiired
-Meta: @newTask @debug
+Meta: @newTask
 When I click on Add Work Shift button
 And I click on Save button in Add Work Shift window
 Then I check that Required error message is shown under Work Shift field
@@ -25,6 +25,10 @@ Then I check that Required error message is shown under Work Shift field
 
 !-- TODO implement this scenario
 Scenario: AC-3 Check that value in Hours Per Day field calculated propertly
+Meta: @newTask @debug
+When I click on Add Work Shift button
+When I using time picker set 10 : 50 value into From filed
+When I using time picker set 18 : 20 value into To filed
 
 
 
