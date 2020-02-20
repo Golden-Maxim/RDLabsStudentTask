@@ -7,6 +7,7 @@ import org.jbehave.core.annotations.When;
 import steps.DefaultStepsData;
 import steps.WorkShiftsSteps;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WorkShiftsStepDefs extends DefaultStepsData {
@@ -21,6 +22,6 @@ public class WorkShiftsStepDefs extends DefaultStepsData {
 
     @Then("Check that rows with values $General, $Twilight in WorkShift column are shown by default")
     public void  checkDefaultValues(String general, String twilight){
-        workShiftsSteps.test();
+        softly.assertThat(workShiftsSteps.checkWorkShiftColumn()).contains(general,twilight);
     }
 }

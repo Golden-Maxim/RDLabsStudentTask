@@ -7,6 +7,7 @@ import net.thucydides.core.annotations.Step;
 import pageComponents.AddWorkShiftModalWindow;
 import pageComponents.TimePicker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -36,11 +37,15 @@ public class WorkShiftsSteps extends DefaultStepsData {
     }
 
     @Step
-    public void test(){
+    public List<String> checkWorkShiftColumn(){
+        List<String> valuesOfWorkShiftColumn = new ArrayList<>();
         List<WorkShiftGrid>allItems = getWorkShiftGrid();
         for (WorkShiftGrid single:allItems){
-            log.info("MyUserObject = " + single);
+            if (single.getWorkShift().equals("General") || single.getWorkShift().equals("Twilight")){
+                valuesOfWorkShiftColumn.add(single.getWorkShift());
+            }
         }
+        return valuesOfWorkShiftColumn;
     }
 
 }
