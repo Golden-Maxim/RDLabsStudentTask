@@ -1,14 +1,10 @@
 package stepDefs;
 
-import grids.WorkShiftGrid;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import steps.DefaultStepsData;
 import steps.WorkShiftsSteps;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class WorkShiftsStepDefs extends DefaultStepsData {
 
@@ -21,7 +17,17 @@ public class WorkShiftsStepDefs extends DefaultStepsData {
     }
 
     @Then("Check that rows with values $General, $Twilight in WorkShift column are shown by default")
-    public void  checkDefaultValues(String general, String twilight){
-        softly.assertThat(workShiftsSteps.checkWorkShiftColumn()).contains(general,twilight);
+    public void checkDefaultValues(String general, String twilight) {
+        softly.assertThat(workShiftsSteps.checkWorkShiftColumn()).contains(general, twilight);
+    }
+
+    @When("I click on Save button in Add Work Shift window")
+    public void clickOnSaveButtonInAddWorkShiftWindow() {
+        workShiftsSteps.workShiftClickOnTheSaveButton();
+    }
+
+    @Then("I check that $Required error message is shown under Work Shift field")
+    public void checkErrorMessage(String message) {
+        softly.assertThat(workShiftsSteps.messageUnderWorkShift()).isEqualTo(message);
     }
 }
