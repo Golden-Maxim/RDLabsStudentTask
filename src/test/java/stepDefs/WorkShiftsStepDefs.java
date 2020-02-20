@@ -34,10 +34,16 @@ public class WorkShiftsStepDefs extends DefaultStepsData {
     @When("I using time picker set $10 : $50 value into From filed")
     public void setHoursAndMinutesFrom(String hours,String minutes){
         workShiftsSteps.clickOnTheTimePickerIcon();
-        workShiftsSteps.setTimeFrom(hours,minutes);
+        workShiftsSteps.setTime(hours,minutes);
     }
      @When("I using time picker set $18 : $20 value into To filed")
     public void setHoursAndMinutesTO(String hours, String minutes){
         workShiftsSteps.clickOnTheBottomTimePickerIcon();
+        workShiftsSteps.setTime(hours,minutes);
     }
+    @Then("I check that $time value calculated in Hours Per Day field")
+    public void  checkCalculatedTime(String t){
+        softly.assertThat(workShiftsSteps.getCalculateHourPerDay().equals(t));
+    }
+
 }

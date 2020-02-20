@@ -16,18 +16,11 @@ public class UsersPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"status_inputfileddiv\"]/div/input")
     WebElementFacade selectFilterStatus;
 
-
     public void clickOnFilterButton() {
         log.info("Clicking on the [Filter button]");
         filterButton.withTimeoutOf(Duration.ofSeconds(15)).waitUntilVisible();
-        waitUntilSpinnerGone(3);
+        waitUntilSpinnerGone(20);
         filterButton.withTimeoutOf(Duration.ofSeconds(15)).waitUntilVisible().waitUntilEnabled().waitUntilClickable().click();
     }
 
-    /*public void clickOnFilterStatusButton(){
-        log.info("Clicking on the [Filter Status]");
-        selectFilterStatus.click();
-        //((JavascriptExecutor)getDriver()).executeScript("document.querySelectorAll('#status > option:nth-child(3)')[2]");
-
-    }*/
 }

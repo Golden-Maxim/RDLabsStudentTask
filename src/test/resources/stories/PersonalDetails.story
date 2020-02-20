@@ -25,7 +25,7 @@ Then I check that all countries in Nationality select box ordered by name asc
 
 !-- TODO implement this scenario
 Scenario: AC-4 user not allow to check both Male and Female radio button in Gender section
-Meta: @newTask
+Meta: @newTask @regression
 When I under Gender label I set Male radio button as checked
 Then I check that Female radio button is unchecked
 When I set Female radio button as checked
@@ -33,14 +33,14 @@ Then I check that Male radio button is unchecked
 
 !-- TODO implement this scenario
 Scenario: AC-5 Check that error message "Should be on or before today" must be shown if user enter birth date in future (next day after today)
-Meta: @newTask
+Meta: @newTask @regression
 When I set Date of Birth as tomorrow date
 When I click on save button in Personal Details form
 Then I check that error message with text Should be on or before today appears under Date of Birth field
 
 !-- TODO implement this scenario
 Scenario: AC-6 Check that error message with text Required appears under EEO Race and Ethnicity field after click on Save button
-Meta: @newTask
+Meta: @newTask @regression
 Then I check that EEO Race and Ethnicity select has NO value by default
 When I click on Save button in Personal Details form
 Then I check that error message with text Required appears under EEO Race and Ethnicity field

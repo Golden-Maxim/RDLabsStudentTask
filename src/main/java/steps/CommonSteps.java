@@ -36,7 +36,7 @@ public class CommonSteps extends DefaultStepsData {
         LeftMenu leftMenuElement = new LeftMenu(dashboardPage.getLeftMenuBlock());
         log.info("Navigating to: " + pageName + " page");
         leftMenuElement.goToPage(pageName);
-        dashboardPage.waitUntilSpinnerGone(10);
+        dashboardPage.waitUntilSpinnerGone(20);
     }
 
     @Step

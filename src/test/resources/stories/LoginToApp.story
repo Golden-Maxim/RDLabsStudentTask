@@ -44,13 +44,13 @@ Then I check that following social-media buttons are visible:
 
 !-- TODO implement this scenario
 Scenario: AC-6 Check that text "admin" is shown by default on login page in user name field:
-Meta: @newTask
+Meta: @newTask @regression
 Then I check that text 'admin' admin is shown by default on login page in user name field
 
 
 !-- TODO implement this scenario
 Scenario: AC-7 Check that pop up messege with text 'Invalid Credentials' is shown after login with invalid credentials
-Meta: @newTask
+Meta: @newTask @regression
 When I login to application with username 'admin_invalid' and password 'admin_invalid'
 Then I check that pop up with text Invalid Credentials appears
 

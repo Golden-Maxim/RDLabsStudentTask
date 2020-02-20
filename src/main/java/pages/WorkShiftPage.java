@@ -17,9 +17,4 @@ public class WorkShiftPage extends BasePage {
     @FindBy(css = ".picker--opened .picker__box")
     WebElementFacade timePickerLocator;
 
-/*
-    @FindBy(xpath = "//*[@id=\"modal1\"]/form/div[1]/div/materializecss-decorator[1]/div/sf-decorator[2]/div/span[1]/span[1]/i")
-    WebElementFacade buttonTimePicker;
-*/
-
 }

@@ -83,7 +83,7 @@ public class WorkShiftsSteps extends DefaultStepsData {
 
 
     @Step
-    public void setTimeFrom(String hours, String minutes){
+    public void setTime(String hours, String minutes){
 
         List<WebElementFacade> listHours = getTimePickerElement().getHoursBoard();
         for(WebElementFacade hour: listHours){
@@ -99,11 +99,13 @@ public class WorkShiftsSteps extends DefaultStepsData {
             }
         }
 
+        getTimePickerElement().clickToOkButton();
 
-        TIME_PICKER.put(new TimePicker(workShiftPage.getTimePickerLocator()));
-        TimePicker timePicker = TIME_PICKER.get();
-        timePicker.clickToOkButton();
-
+    }
+    @Step
+    public String getCalculateHourPerDay(){
+        AddWorkShiftModalWindow addWorkShiftModalWindow = WORK_SHIFT_MODAL_WINDOW.get();
+        return addWorkShiftModalWindow.getHourPerDay().getValue();
     }
 
 
