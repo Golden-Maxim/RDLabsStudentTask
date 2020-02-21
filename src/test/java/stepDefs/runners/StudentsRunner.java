@@ -3,6 +3,6 @@ package stepDefs.runners;
 import net.serenitybdd.jbehave.annotations.Metafilter;
 
 @Metafilter("+newTask")
-public class NewTaskRunner extends BaseRunnerConfiguration {
+public class StudentsRunner extends BaseRunnerConfiguration {
 
 }
