@@ -47,14 +47,14 @@ public class TimePicker {
         return Objects.hash(getTimePickerComponent(), getTopHours(), getTopMinutes(), getHoursBoard(), getMinutesBoard(), getOkButton());
     }
 
-    public List<String> workWithTimePicker(){
+    public List<String> workWithTimePicker() {
         List<String> list = new ArrayList<>();
         this.hoursBoard.stream().filter(hour -> hour.waitUntilEnabled().getText().equals("10")).forEachOrdered(WebElementFacade::click);
 
-        return  list;
+        return list;
     }
 
-    public void clickToOkButton(){
+    public void clickToOkButton() {
         log.info("Click on the OK Button");
         this.okButton.waitUntilEnabled().waitUntilClickable().click();
     }

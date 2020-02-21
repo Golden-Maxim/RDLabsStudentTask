@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
-import sun.awt.windows.WEmbeddedFrame;
 
 @Getter
 @Slf4j
@@ -40,12 +39,13 @@ public class AddWorkShiftModalWindow {
         log.info("Click on the save button");
         this.saveButton.waitUntilEnabled().waitUntilClickable().click();
     }
-    public void clickOnTheTimePicker(){
+
+    public void clickOnTheTimePicker() {
         log.info("Open Time Picker");
         this.buttonTimePicker.waitUntilEnabled().waitUntilClickable().click();
     }
 
-    public void clickOnTheBottomButtonTimePicker(){
+    public void clickOnTheBottomButtonTimePicker() {
         log.info("Open Time Picker");
         this.bottomButtonTimePicker.waitUntilEnabled().waitUntilClickable().click();
     }

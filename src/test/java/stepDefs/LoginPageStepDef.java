@@ -36,7 +36,6 @@ public class LoginPageStepDef extends DefaultStepsData {
                 .isEqualTo(errorTextMessage);
     }
 
-
     @When("I click on Login as a Different Role button")
     public void clickOnShowRoleButton() {
         loginPageSteps.clickOnTheLoginAsDifferentRoleButton();

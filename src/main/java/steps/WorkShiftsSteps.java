@@ -5,16 +5,13 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.By;
 import pageComponents.AddWorkShiftModalWindow;
 import pageComponents.TimePicker;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
-import static utils.SessionVariables.TIME_PICKER;
 import static utils.SessionVariables.WORK_SHIFT_MODAL_WINDOW;
 
 @Getter
@@ -70,31 +67,31 @@ public class WorkShiftsSteps extends DefaultStepsData {
 
 
     @Step
-    public void clickOnTheTimePickerIcon(){
+    public void clickOnTheTimePickerIcon() {
         AddWorkShiftModalWindow addWorkShiftModalWindow = WORK_SHIFT_MODAL_WINDOW.get();
         addWorkShiftModalWindow.clickOnTheTimePicker();
     }
 
     @Step
-    public void clickOnTheBottomTimePickerIcon(){
+    public void clickOnTheBottomTimePickerIcon() {
         AddWorkShiftModalWindow addWorkShiftModalWindow = WORK_SHIFT_MODAL_WINDOW.get();
         addWorkShiftModalWindow.clickOnTheBottomButtonTimePicker();
     }
 
 
     @Step
-    public void setTime(String hours, String minutes){
+    public void setTime(String hours, String minutes) {
 
         List<WebElementFacade> listHours = getTimePickerElement().getHoursBoard();
-        for(WebElementFacade hour: listHours){
-           if(hour.getText().equals(hours)){
-               hour.waitUntilEnabled().waitUntilClickable().click();
-           }
+        for (WebElementFacade hour : listHours) {
+            if (hour.getText().equals(hours)) {
+                hour.waitUntilEnabled().waitUntilClickable().click();
+            }
         }
 
         List<WebElementFacade> listMinutes = getTimePickerElement().getMinutesBoard();
-        for(WebElementFacade m:listMinutes){
-            if(m.waitUntilVisible().getText().equals(minutes)){
+        for (WebElementFacade m : listMinutes) {
+            if (m.waitUntilVisible().getText().equals(minutes)) {
                 m.waitUntilVisible().waitUntilClickable().click();
             }
         }
@@ -102,8 +99,9 @@ public class WorkShiftsSteps extends DefaultStepsData {
         getTimePickerElement().clickToOkButton();
 
     }
+
     @Step
-    public String getCalculateHourPerDay(){
+    public String getCalculateHourPerDay() {
         AddWorkShiftModalWindow addWorkShiftModalWindow = WORK_SHIFT_MODAL_WINDOW.get();
         return addWorkShiftModalWindow.getHourPerDay().getValue();
     }
