@@ -24,7 +24,7 @@
                 <executions>
                     <execution>
                         <id>serenity-reports</id>
-                        <phase>compile</phase>
+                        <phase>post-integration-test</phase>
                         <goals>
                             <goal>aggregate</goal>
                         </goals>
