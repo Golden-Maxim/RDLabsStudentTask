@@ -54,7 +54,7 @@ public class LoginPage extends BasePage {
 
     public void clickOnTheLoginAsDifferentRoleButton() {
         log.info("Clicking on the [Login as a Different Role] button");
-        loginAsDifferentRoleButton.waitUntilVisible().waitUntilClickable().click();
+        loginAsDifferentRoleButton.waitUntilClickable().click();
     }
 
 
