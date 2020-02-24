@@ -20,7 +20,7 @@ And I click on Save button in Add Work Shift window
 Then I check that Required error message is shown under Work Shift field
 
 Scenario: AC-3 Check that value in Hours Per Day field calculated propertly
-Meta: @regression @newTask
+Meta: @regression @newTask @debug
 When I click on Add Work Shift button
 When I using time picker set 10 : 50 value into From filed
 When I using time picker set 18 : 20 value into To filed

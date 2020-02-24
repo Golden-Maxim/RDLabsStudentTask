@@ -33,7 +33,7 @@ Then I check that Male radio button is unchecked
 
 
 Scenario: AC-5 Check that error message "Should be on or before today" must be shown if user enter birth date in future (next day after today)
-Meta: @regression @newTask
+Meta: @regression @newTask @debug
 When I set Date of Birth as tomorrow date
 When I click on save button in Personal Details form
 Then I check that error message with text Should be on or before today appears under Date of Birth field

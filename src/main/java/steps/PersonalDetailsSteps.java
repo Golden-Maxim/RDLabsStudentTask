@@ -10,7 +10,7 @@ public class PersonalDetailsSteps extends DefaultStepsData {
 
     @Step
     public String getValueFromDateOfBirthField() {
-        return personalDetailsPage.getDateOfBirthInputField().getAttribute("value");
+        return personalDetailsPage.getDateOfBirthInputField().waitUntilVisible().getAttribute("value");
     }
 
     @Step

@@ -48,7 +48,7 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
 
     @When("I under Gender label I set Male radio button as checked")
     public void setMaleRadioButton() {
-        personalDetailsPage.getMaleRadioButton().waitUntilClickable().click();
+        personalDetailsPage.getMaleRadioButton().waitUntilVisible().waitUntilClickable().click();
     }
 
     @Then("I check that Female radio button is unchecked")
