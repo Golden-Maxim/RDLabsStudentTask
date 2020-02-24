@@ -69,11 +69,7 @@ public class UsersSteps extends DefaultStepsData {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        usersPage.clickOnElementWithJSExecutor(getDriver(),filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")));
-//        filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().click();
-        //  usersPage.getSelectFilterStatus().sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
-        //((JavascriptExecutor) getDriver()).executeScript("document.querySelector('#status_inputfileddiv > div > input').setAttribute('value','Disabled');");
+        
     }
 
     @Step

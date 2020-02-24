@@ -28,7 +28,6 @@ Then I check that News section is present on Dashboard page with header News
 Then I check that news counter (Showing: number / number) under "News" section is same as real amount of news in list
 
 
-
 Scenario: AC-4 Check that documents counter and actual amount of documents are same
 Meta: @regression @newTask
 Then I check that Documents section is present on Dashboard page with header Documents
