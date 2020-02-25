@@ -64,11 +64,6 @@ public class UsersSteps extends DefaultStepsData {
                 filterUsersModalWindow.getAdminRole().find(By.xpath("./..//ul//span[text()='Global Admin']")).waitUntilEnabled().waitUntilClickable().click();
                 break;
         }
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         
     }
 
