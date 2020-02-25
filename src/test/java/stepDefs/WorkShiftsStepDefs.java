@@ -32,7 +32,7 @@ public class WorkShiftsStepDefs extends DefaultStepsData {
     }
 
     @When("I using time picker set $hours : $minutes value into $field filed")
-    public void setHoursAndMinutesTO(String hours, String minutes,String field) {
+    public void setHoursAndMinutes(String hours, String minutes,String field) {
         workShiftsSteps.setTime(hours, minutes, field);
     }
 
