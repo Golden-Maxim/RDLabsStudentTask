@@ -85,7 +85,4 @@ public class UsersSteps extends DefaultStepsData {
     }
 }
 
-/*
-    List<UsersGrid> usersGrid = usersSteps.getUsersGrid();
-    List<UsersGrid> cassidy_hope = usersGrid.stream().filter(usersGrid1 -> usersGrid1.getEmployeeName().equals("Cassidy Hope")).collect(Collectors.toList());*/
 

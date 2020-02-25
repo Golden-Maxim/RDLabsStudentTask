@@ -13,8 +13,4 @@ public class EmployeeTimeSheetsPage extends BasePage {
     @FindBy(css = ".ac_results li")
     private WebElementFacade employeeNameAutoCompleteElement;
 
-    /*public void switchToIframe(){
-      getDriver().switchTo().frame("noncoreIframe");
-    }
-*/
 }

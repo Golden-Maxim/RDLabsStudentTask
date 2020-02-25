@@ -65,23 +65,15 @@ public class WorkShiftsSteps extends DefaultStepsData {
         return addWorkShiftModalWindow.getAddWorkShiftModal().find(By.xpath("//div[contains(@class,'input-field col s12 m12 l12')]//span[text() = 'Required']")).getText();
     }
 
-
     @Step
-    public void clickOnTheTimePickerIcon() {
+    public void setTime(String hours, String minutes,String field) {
         AddWorkShiftModalWindow addWorkShiftModalWindow = WORK_SHIFT_MODAL_WINDOW.get();
-        addWorkShiftModalWindow.clickOnTheTimePicker();
-    }
-
-    @Step
-    public void clickOnTheBottomTimePickerIcon() {
-        AddWorkShiftModalWindow addWorkShiftModalWindow = WORK_SHIFT_MODAL_WINDOW.get();
-        addWorkShiftModalWindow.clickOnTheBottomButtonTimePicker();
-    }
-
-
-    @Step
-    public void setTime(String hours, String minutes) {
-
+        if (field.equals("From")) {
+            addWorkShiftModalWindow.clickOnTheTimePicker();
+        }
+        if (field.equals("To")) {
+            addWorkShiftModalWindow.clickOnTheBottomButtonTimePicker();
+        }
         List<WebElementFacade> listHours = getTimePickerElement().getHoursBoard();
         for (WebElementFacade hour : listHours) {
             if (hour.getText().equals(hours)) {

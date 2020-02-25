@@ -12,7 +12,6 @@ Scenario: AC-1 Check that by default General and Twilight work shifts types are 
 Meta: @regression @newTask
 Then Check that rows with values General, Twilight in WorkShift column are shown by default
 
-
 Scenario: AC-2 Check that Work Shift field on Add work shift model requiired
 Meta: @regression @newTask
 When I click on Add Work Shift button

@@ -42,7 +42,6 @@ Then I check that following social-media buttons are visible:
 | linkedin            |
 
 
-
 Scenario: AC-6 Check that text "admin" is shown by default on login page in user name field:
 Meta: @regression @newTask
 Then I check that text 'admin' admin is shown by default on login page in user name field

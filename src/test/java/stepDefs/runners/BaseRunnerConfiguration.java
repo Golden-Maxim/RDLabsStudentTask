@@ -8,9 +8,6 @@ import resources.Constants;
 
 import static net.thucydides.core.ThucydidesSystemProperty.*;
 
-//https://johnfergusonsmart.com/running-individual-scenarios-jbehave-cucumber-serenity-bdd/
-//https://github.com/serenity-bdd/serenity-documentation/blob/master/src/asciidoc/advanced-webdriver.adoc
-
 public class BaseRunnerConfiguration extends SerenityStories {
 
     private Configuration configuration;

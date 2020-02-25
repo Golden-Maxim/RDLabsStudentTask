@@ -8,7 +8,7 @@ Given I am on the login page of application
 When I login to application with username 'admin' and password 'admin123'
 
 Scenario: AC-1 Check that left menu appear/disapear after clicking on hide/show menu button
-Meta: @regression @debug
+Meta: @regression
 When I click on hide menu button
 Then main menu disappear
 When I click on show menu button
@@ -21,12 +21,10 @@ Then Legend component appears in Employee Distribution by Subunit section
 When I click on the three dots button inside Leave Taken from January by Subunit section
 Then Legend component appears in Leave Taken from January by Subunit section
 
-
 Scenario: AC-3 Check that news counter and actual amount of news are same
 Meta: @regression @newTask
 Then I check that News section is present on Dashboard page with header News
 Then I check that news counter (Showing: number / number) under "News" section is same as real amount of news in list
-
 
 Scenario: AC-4 Check that documents counter and actual amount of documents are same
 Meta: @regression @newTask

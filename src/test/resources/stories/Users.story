@@ -17,14 +17,12 @@ Then record is shown with following parameters:
 | Username | User Role(s)                    | Employee Name | Status  | Region |
 | alice    | Default ESS, Default Supervisor | Alice Duval   | Enabled |        |
 
-
 Scenario: AC-2 Filter by Status 'Disabled' and check that Employee with name Cassidy Hope is NOT shown in the search result
 Meta: @regression @newTask
 When I open filter users window
 Then Filter user by Status with option Disabled
 When I click on the Search button
 Then I check that employee with name Cassidy Hope is NOT shown in the search result
-
 
 Scenario: AC-3 Filter by Admin Role 'Global Admin' and check that Employee with name Cecil Bonaparte is shown in the search result
 Meta: @regression @newTask

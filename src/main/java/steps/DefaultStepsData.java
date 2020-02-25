@@ -7,9 +7,6 @@ import pages.*;
 
 public class DefaultStepsData extends ScenarioSteps {
 
-    //https://joel-costigliola.github.io/assertj/core/api/org/assertj/core/api/SoftAssertions.html
-    //https://blog.codeleak.pl/2015/09/assertjs-softassertions-do-we-need-them.html
-
     protected LoginPage loginPage;
     protected DashboardPage dashboardPage;
     protected PersonalDetailsPage personalDetailsPage;
