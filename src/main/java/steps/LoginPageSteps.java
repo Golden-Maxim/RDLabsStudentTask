@@ -44,7 +44,7 @@ public class LoginPageSteps extends DefaultStepsData {
 
     @Step
     public String getTextFromPopUPInvalidCredentials() {
-        PopUp popUp = new PopUp(loginPage.getPopUpContainer().waitUntilEnabled());
+        PopUp popUp = new PopUp(loginPage.getPopUpContainer().waitUntilVisible());
         return popUp.getPopUpMessage();
     }
 }
