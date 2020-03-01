@@ -13,7 +13,7 @@ public class UsersPage extends BasePage {
 
     @FindBy(xpath = "//a[@data-tooltip='Filter']")
     private WebElementFacade filterButton;
-    @FindBy(xpath = "//*[@id=\"status_inputfileddiv\"]/div/input")
+    @FindBy(xpath = "//*[@id='status_inputfileddiv']/div/input")
     WebElementFacade selectFilterStatus;
 
     public void clickOnFilterButton() {

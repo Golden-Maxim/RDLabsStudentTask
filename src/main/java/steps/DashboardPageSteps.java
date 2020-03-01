@@ -71,15 +71,17 @@ public class DashboardPageSteps extends DefaultStepsData {
     @Step
     public int getValueUnderSection(String section) {
         String countText;
-        switch (section) {
-            case "News":
+        ItemsContainer itemsContainer = ItemsContainer.getItemsContainerName(section);
+        switch (itemsContainer) {
+            case NEWS:
                 countText = dashboardPage.getShowingNumberNews().getText().split("/")[1].trim();
                 return Integer.parseInt(countText);
-            case "Documents":
+            case DOCUMENTS:
                 countText = dashboardPage.getShowingNumberOfDocuments().getText().split("/")[1].trim();
                 return Integer.parseInt(countText);
+            default:
+                throw new IllegalStateException("Unexpected value: " + itemsContainer);
         }
-        return -1;
     }
 
 

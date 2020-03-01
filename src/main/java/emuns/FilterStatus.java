@@ -5,7 +5,8 @@ import lombok.Getter;
 @Getter
 public enum FilterStatus {
     DISABLED("Disabled"),
-    ENABLED("Enabled");
+    ENABLED("Enabled"),
+    GLOBALADMIN("Global Admin");
 
     public String var;
 

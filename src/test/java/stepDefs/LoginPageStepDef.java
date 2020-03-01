@@ -64,7 +64,7 @@ public class LoginPageStepDef extends DefaultStepsData {
     }
 
 
-    @Then("I check that text '$admin' admin is shown by default on login page in user name field")
+    @Then("I check that text '$admin' is shown by default on login page in user name field")
     public void checkThatTextAdminIsDefault(String admin) {
         softly.assertThat(loginPageSteps.getTexFromAdminField()).isEqualTo(admin);
     }
@@ -72,5 +72,6 @@ public class LoginPageStepDef extends DefaultStepsData {
     @Then("I check that pop up with text $Invalid_Credentials appears")
     public void checkThatPopUPInvalidCredentialsAppears(String textPopUp) {
         softly.assertThat(loginPageSteps.getTextFromPopUPInvalidCredentials()).isEqualTo(textPopUp);
+        System.out.println(loginPageSteps.getTextFromPopUPInvalidCredentials());
     }
 }

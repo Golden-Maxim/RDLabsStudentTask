@@ -62,7 +62,7 @@ public class WorkShiftsSteps extends DefaultStepsData {
     @Step
     public String messageUnderWorkShift() {
         AddWorkShiftModalWindow addWorkShiftModalWindow = WORK_SHIFT_MODAL_WINDOW.get();
-        return addWorkShiftModalWindow.getAddWorkShiftModal().find(By.xpath("//div[contains(@class,'input-field col s12 m12 l12')]//span[text() = 'Required']")).getText();
+        return addWorkShiftModalWindow.getAddWorkShiftModal().find(By.xpath("//div[@class = 'input-field col s12 m12 l12']//span[text() = 'Required']")).getText();
     }
 
     @Step

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.By;
 
 import java.util.List;
 
@@ -55,6 +56,10 @@ public class LoginPage extends BasePage {
     public void clickOnTheLoginAsDifferentRoleButton() {
         log.info("Clicking on the [Login as a Different Role] button");
         loginAsDifferentRoleButton.waitUntilClickable().click();
+    }
+
+    public String getTextFromPopUp(){
+        return getPopUpElement().find(By.cssSelector(".toast-message")).getText();
     }
 
 

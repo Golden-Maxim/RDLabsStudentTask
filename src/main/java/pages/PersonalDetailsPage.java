@@ -28,7 +28,7 @@ public class PersonalDetailsPage extends BasePage {
     @FindBy(xpath = "//label[@for='emp_gender_2']")
     private WebElementFacade femaleRadioButton;
 
-    @FindBy(xpath = "//div[contains(@class,'form-group schema-form-submit col s12 right-align')]//button[@class = ' btn waves-effect waves-green ']")
+    @FindBy(xpath = "//button[@class = ' btn waves-effect waves-green ']")
     private WebElementFacade saveButton;
 
     @FindBy(xpath = "//span[@class = 'help-block-message']")

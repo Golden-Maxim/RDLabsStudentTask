@@ -33,10 +33,10 @@ Then I check that employee with name Cecil Bonaparte is shown in the search resu
 
 
 Scenario: AC-4 Check that values saved after closing filter users window
-Meta: @regression @newTask
+Meta: @regression @newTask @debug
 When I open filter users window
-And Select any value from Status select
-And Select any value from Admin Role select
+Then Filter user by Status with option Disabled
+Then Filter user by Admin Role with option Global Admin
 When I click on the Search button
 And Click on the Filter users button again
-Then Check that previously entered values saved in Status and Admin Role selects
+Then Check that previously entered values Disabled and Global Admin saved in Status and Admin Role selects

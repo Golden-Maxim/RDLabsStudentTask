@@ -15,10 +15,6 @@ public class AddWorkShiftModalWindow {
     private WebElementFacade workShiftNameInputField;
     private WebElementFacade fromInputField;
     private WebElementFacade fromClockIcon;
-    private WebElementFacade helpBlock;
-    private WebElementFacade toInputField;
-    private WebElementFacade toClockIcon;
-    private WebElementFacade hoursPerDayInputField;
     private WebElementFacade buttonTimePicker;
     private WebElementFacade bottomButtonTimePicker;
     private WebElementFacade hourPerDay;

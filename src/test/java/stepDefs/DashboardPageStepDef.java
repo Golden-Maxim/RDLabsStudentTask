@@ -1,5 +1,6 @@
 package stepDefs;
 
+import emuns.ItemsContainer;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Then;
@@ -25,9 +26,6 @@ public class DashboardPageStepDef extends DefaultStepsData {
                 .isEqualTo(userName);
     }
 
-    //https://jbehave.org/reference/latest/aliases.html
-
-    //first bag are fixed
     @When("I click on hide menu button")
     @Alias("I click on show menu button")
     public void whenClickOnTheHideMenuButton() {
@@ -52,24 +50,36 @@ public class DashboardPageStepDef extends DefaultStepsData {
         softly.assertThat(dashboardPageSteps.checkThatLegendAppearsIn(sectionName)).as("Legend component not appers").isTrue();
     }
 
-    @Then("I check that News section is present on Dashboard page with header $News")
-    public void newsSectionIsPresentOnDashboard(String header) {
-        softly.assertThat(dashboardPageSteps.getTextFromHeader("News")).isEqualTo(header);
+    @Then("I check that $section section is present on Dashboard page with header $name")
+    public void sectionIsPresentOnDashboard(String header) {
+        ItemsContainer itemsContainer = ItemsContainer.getItemsContainerName(header);
+        switch (itemsContainer){
+            case NEWS:
+                softly.assertThat(dashboardPageSteps.getTextFromHeader("News")).isEqualTo(header);
+                break;
+            case DOCUMENTS:
+                softly.assertThat(dashboardPageSteps.getTextFromHeader("Documents")).isEqualTo(header);
+                break;
+            default:
+                System.out.println("Is not valid Header!!!");
+        }
+
     }
 
-    @Then("I check that news counter (Showing: number / number) under \"News\" section is same as real amount of news in list")
-    public void equalsCountersToNewsList() {
-        softly.assertThat(dashboardPageSteps.getCountItemsList("News")).isEqualTo(dashboardPageSteps.getValueUnderSection("News"));
-    }
+    @Then("I check that news counter (Showing: number / number) under $name section is same as real amount of news in list")
+    public void equalsCountersToList(String section) {
+        ItemsContainer itemsContainer = ItemsContainer.getItemsContainerName(section);
+        switch (itemsContainer){
+            case NEWS:
+                softly.assertThat(dashboardPageSteps.getCountItemsList("News")).isEqualTo(dashboardPageSteps.getValueUnderSection("News"));
+                break;
+            case DOCUMENTS:
+                softly.assertThat(dashboardPageSteps.getCountItemsList("Documents")).isEqualTo(dashboardPageSteps.getValueUnderSection("Documents"));
+                break;
+            default:
+                System.out.println("Is not valid section name!!!");
+        }
 
-    @Then("I check that Documents section is present on Dashboard page with header $Documents")
-    public void sectionDocumentsPresentOnDashboard(String header) {
-        softly.assertThat(dashboardPageSteps.getTextFromHeader("Documents")).isEqualTo(header);
-    }
-
-    @Then("I check that news counter (Showing: number / number) under  Documents section is same as real amount of news in list")
-    public void equalsCountedOfDocumentsToNewList() {
-        softly.assertThat(dashboardPageSteps.getCountItemsList("Documents")).isEqualTo(dashboardPageSteps.getValueUnderSection("Documents"));
     }
 
 }
