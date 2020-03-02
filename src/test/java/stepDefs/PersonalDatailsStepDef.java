@@ -54,6 +54,7 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
             case "Female":
                 personalDetailsPage.getFemaleRadioButton().waitUntilClickable().click();
                 break;
+            default:throw new IllegalStateException("Unexpected type");
         }
 
     }

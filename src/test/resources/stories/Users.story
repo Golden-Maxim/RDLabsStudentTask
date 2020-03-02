@@ -38,5 +38,5 @@ When I open filter users window
 Then Filter user by Status with option Disabled
 Then Filter user by Admin Role with option Global Admin
 When I click on the Search button
-And Click on the Filter users button again
-Then Check that previously entered values Disabled and Global Admin saved in Status and Admin Role selects
+And I open filter users window
+Then Check that previously entered values saved in Status and Admin Role selects

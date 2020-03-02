@@ -34,10 +34,10 @@ public class PersonalDetailsPage extends BasePage {
     @FindBy(xpath = "//span[@class = 'help-block-message']")
     private WebElementFacade errorMessage;
 
-    @FindBy(xpath = "//*[@id=\"eeo_race_ent_inputfileddiv\"]/div/input")
+    @FindBy(xpath = "//*[@id='eeo_race_ent_inputfileddiv']/div/input")
     private WebElementFacade EEORaceAndEthnicity;
 
-    @FindBy(xpath = "//*[@id=\"eeo_race_ent_inputfileddiv\"]/span")
+    @FindBy(xpath = "//*[@id='eeo_race_ent_inputfileddiv']/span")
     private WebElementFacade EEORaceAndEthnicityMessage;
 
     public void enterDateOfBirth(String date) {

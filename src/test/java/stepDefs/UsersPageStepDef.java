@@ -12,7 +12,8 @@ import steps.UsersSteps;
 import java.util.List;
 import java.util.Map;
 
-import static utils.SessionVariables.FILTER_USERS_WINDOW;
+import static utils.SessionVariables.*;
+
 
 public class UsersPageStepDef extends DefaultStepsData {
 
@@ -46,9 +47,16 @@ public class UsersPageStepDef extends DefaultStepsData {
         usersSteps.clickOnTheSearchButton();
     }
 
-    @Then("Filter user by $Status with option Disabled")
-    public void filterUserByStatusDisabled(String value) {
-        usersSteps.switchFilter(value);
+    @Then("Filter user by $select with option $value")
+    public void filterUserByStatus(String selectValue,String option) {
+        if (selectValue.equals("Status")){
+            usersSteps.switchFilter(selectValue);
+            STATUS_DISABLED.put(option);
+        }else if(selectValue.equals("Admin Role")){
+            usersSteps.switchFilter(selectValue);
+            STATUS_GLOBAL_ADMIN.put(option);
+        }else throw new IllegalStateException("Unexpected value");
+
     }
 
     @When("I click on the Search button")
@@ -65,21 +73,13 @@ public class UsersPageStepDef extends DefaultStepsData {
         }
     }
 
-    @Then("Filter user by $parameter with option Global Admin")
-    public void filterUserByAdminRole(String value) {
-        usersSteps.switchFilter(value);
-    }
-
-    @When("Click on the Filter users button again")
-    public void againOpenFilterWindow() {
-        usersSteps.openFilterWindow();
-    }
-
-    @Then("Check that previously entered values $values1 and $values2 saved in Status and Admin Role selects")
-    public void checkThatPreviouslyValuesIsSaved(String values1,String values2) {
+    @Then("Check that previously entered values saved in Status and Admin Role selects")
+    public void checkThatPreviouslyValuesIsSaved() {
         FilterUsersModalWindow filterUsersModalWindow = FILTER_USERS_WINDOW.get();
-        softly.assertThat(filterUsersModalWindow.getStatus().getValue()).isEqualTo(values1);
-        softly.assertThat(filterUsersModalWindow.getAdminRole().getValue()).isEqualTo(values2);
-
+        String statusDisabled = STATUS_DISABLED.get();
+        String statusGlobalAdmin = STATUS_GLOBAL_ADMIN.get();
+        softly.assertThat(filterUsersModalWindow.getStatus().getValue()).isEqualTo(statusDisabled);
+        softly.assertThat(filterUsersModalWindow.getAdminRole().getValue()).isEqualTo(statusGlobalAdmin);
     }
+
 }

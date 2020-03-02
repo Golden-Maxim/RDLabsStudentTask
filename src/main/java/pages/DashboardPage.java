@@ -77,6 +77,7 @@ public class DashboardPage extends BasePage {
                     container.add(element.getText());
                 }
                 break;
+            default: throw new IllegalStateException();
         }
         return sizeOf(container);
     }

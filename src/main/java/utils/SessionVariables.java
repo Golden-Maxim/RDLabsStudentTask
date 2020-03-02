@@ -16,6 +16,8 @@ public enum SessionVariables {
     MIDDLE_NAME,
     FILTER_USERS_WINDOW,
     WORK_SHIFT_MODAL_WINDOW,
+    STATUS_DISABLED,
+    STATUS_GLOBAL_ADMIN,
     TIME_PICKER;
 
     SessionVariables() {
@@ -33,5 +35,4 @@ public enum SessionVariables {
         log.info(String.format("Getting from session variables %s", var));
         return (T) Serenity.getCurrentSession().get(var);
     }
-
 }
