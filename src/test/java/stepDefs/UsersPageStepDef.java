@@ -50,10 +50,10 @@ public class UsersPageStepDef extends DefaultStepsData {
     @Then("Filter user by $select with option $value")
     public void filterUserByStatus(String selectValue,String option) {
         if (selectValue.equals("Status")){
-            usersSteps.switchFilter(selectValue);
+            usersSteps.switchFilter(selectValue,option);
             STATUS_DISABLED.put(option);
         }else if(selectValue.equals("Admin Role")){
-            usersSteps.switchFilter(selectValue);
+            usersSteps.switchFilter(selectValue,option);
             STATUS_GLOBAL_ADMIN.put(option);
         }else throw new IllegalStateException("Unexpected value");
 

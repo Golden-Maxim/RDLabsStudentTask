@@ -52,22 +52,18 @@ public class UsersSteps extends DefaultStepsData {
     }
 
     @Step
-    public void switchFilter(String filter) {
+    public void switchFilter(String filter, String option) {
         FilterUsersModalWindow filterUsersModalWindow = FILTER_USERS_WINDOW.get();
         switch (filter) {
             case "Status":
                 log.info("Filtering by Status");
                 filterUsersModalWindow.getStatus().click();
-                filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='Disabled']")).waitUntilEnabled().waitUntilClickable().click();
+                filterUsersModalWindow.getStatus().find(By.xpath("./..//ul//span[text()='"+ option +"']")).waitUntilEnabled().waitUntilClickable().click();
                 break;
             case "Admin Role":
                 log.info("Filtering by AdminRole");
                 filterUsersModalWindow.getAdminRole().click();
-                filterUsersModalWindow.getAdminRole().find(By.xpath("./..//ul//span[text()='Global Admin']")).waitUntilEnabled().waitUntilClickable().click();
-                break;
-            case "Employee Name":
-                log.info("Filtering by Employee Name");
-                filterUsersModalWindow.getEssRole().find(By.xpath("./..//ul//span[text()='Employee Name']")).waitUntilEnabled().waitUntilClickable().click();
+                filterUsersModalWindow.getAdminRole().find(By.xpath("./..//ul//span[text()='"+ option +"']")).waitUntilEnabled().waitUntilClickable().click();
                 break;
             default:
                 throw new IllegalStateException("Unexpected value");
