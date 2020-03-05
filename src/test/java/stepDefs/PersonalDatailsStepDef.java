@@ -1,6 +1,7 @@
 package stepDefs;
 
 import com.google.common.collect.Ordering;
+import emuns.FilterStatus;
 import emuns.ItemsSelect;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Then;
@@ -47,11 +48,12 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
 
     @When("I set $type radio button as checked")
     public void setMaleRadioButton(String type) {
-        switch (type){
-            case "Male":
+        FilterStatus filterStatus = FilterStatus.getItemFilter(type);
+        switch (filterStatus){
+            case MALE:
                 personalDetailsPage.getMaleRadioButton().waitUntilVisible().waitUntilClickable().click();
                 break;
-            case "Female":
+            case FEMALE:
                 personalDetailsPage.getFemaleRadioButton().waitUntilClickable().click();
                 break;
             default:throw new IllegalStateException("Unexpected type");
@@ -61,11 +63,12 @@ public class PersonalDatailsStepDef extends DefaultStepsData {
 
     @Then("I check that $type radio button is unchecked")
     public void checkThatFemaleIsUnchecked(String type) {
-        switch (type){
-            case "Male":
+        FilterStatus filterStatus = FilterStatus.getItemFilter(type);
+        switch (filterStatus){
+            case MALE:
                 softly.assertThat(personalDetailsSteps.getMaleButtonBooleanAttribute()).isEqualTo(false);
                 break;
-            case "Female":
+            case FEMALE:
                 softly.assertThat(personalDetailsSteps.getFemaleButtonBooleanAttribute()).isEqualTo(false);
                 break;
         }

@@ -6,7 +6,9 @@ import lombok.Getter;
 public enum FilterStatus {
     DISABLED("Disabled"),
     ENABLED("Enabled"),
-    GLOBALADMIN("Global Admin");
+    GLOBALADMIN("Global Admin"),
+    MALE("Male"),
+    FEMALE("Female");
 
     public String var;
 

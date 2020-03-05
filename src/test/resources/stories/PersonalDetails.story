@@ -24,7 +24,7 @@ Meta: @regression
 Then I check that all countries in Nationality select box ordered by name asc
 
 Scenario: AC-4 user not allow to check both Male and Female radio button in Gender section
-Meta: @regression @newTask
+Meta: @regression @newTask @debug
 When I set Male radio button as checked
 Then I check that Female radio button is unchecked
 When I set Female radio button as checked
